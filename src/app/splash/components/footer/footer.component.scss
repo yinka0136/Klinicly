@@ -1,0 +1,230 @@
+@import "../../../partials/mixins";
+
+.sm-show {
+  display: none;
+}
+
+@include respond(phone) {
+  .sm-hide {
+    display: none !important;
+  }
+
+  .sm-show {
+    display: block !important;
+  }
+}
+
+.footer {
+  padding: 10rem 3rem;
+  background: #061238;
+
+  @include respond(phone) {
+    padding: 0;
+    text-align: center;
+  }
+
+  & .accordion {
+    display: none;
+    padding: 0;
+    margin: 0 0 4.8rem 0;
+
+    @include respond(phone) {
+      display: block;
+    }
+
+    & > li {
+      list-style-type: none;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 1.4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+      &:not(.collapsed) .icon {
+        transform: rotate(-180deg);
+      }
+
+      & .icon {
+        transition: all 0.5s ease-in-out;
+      }
+
+      & > div {
+        padding: 2.5rem 3rem;
+        font-weight: bold;
+      }
+
+      & > ul {
+        padding: 0;
+        margin: 0;
+
+        & > li {
+          list-style-type: none;
+
+          &:first-child > a {
+            padding-top: 0;
+          }
+
+          &:last-child > a {
+            padding-bottom: 2.4rem;
+          }
+
+          & > a {
+            display: block;
+            color: #ffffff;
+            opacity: 0.5;
+            padding: 1.2rem 3rem;
+            text-align: left;
+            font-size: 1.4rem;
+
+            &.active {
+              opacity: 0.8;
+            }
+
+            &:hover,
+            &:focus {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .flex-container {
+    align-items: flex-start;
+
+    @include respond(phone) {
+      justify-content: center;
+    }
+  }
+
+  & .flex-container > :first-child {
+    margin-right: 7rem;
+
+    @include respond(phone) {
+      margin-right: 0;
+    }
+  }
+
+  &__logo {
+    width: 16.2rem;
+    margin-bottom: 4rem;
+  }
+  
+  &__copy {
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 2.4rem;
+
+    @include respond(phone) {
+      padding: 0 3rem;
+      margin-bottom: 4.8rem;
+    }
+  }
+  &__socials {
+    display: flex;
+    align-items: center;
+
+    @include respond(tab-port) {
+      justify-content: center;
+    }
+
+    @include respond(phone) {
+      padding: 0 3rem;
+      margin-bottom: 2.3rem;
+    }
+
+    & > * {
+      width: 2rem;
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
+    }
+  }
+  &__list {
+    list-style: none;
+  }
+  &__list-item {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: #ffffff;
+    &:not(:last-child) {
+      margin-bottom: 2.4rem;
+    }
+  }
+  &__list-header {
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: #ffffff;
+    opacity: 0.5;
+    margin-bottom: 3.2rem;
+  }
+  &__list-link {
+    text-decoration: none;
+    color: currentColor;
+  }
+}
+.copy{
+  margin: 4rem 0;
+  $font-props: 1.2rem, 500, #657786, 1.6rem;
+  @include text($font-props...);
+  @include respond(phone){
+    margin: 2.5rem 0;
+    margin-top: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.u-container {
+  max-width: 112rem;
+  height: 100%;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    & > .flex-container {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+
+  & > .flex-container > :first-child {
+    @include respond(tab-port) {
+      margin-top: 4rem;
+      justify-content: center;
+      text-align: center;
+      margin-right: 0;
+    }
+
+    @include respond(phone) {
+      margin-top: 0;
+    }
+  }
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+
+  &__full-row {
+    flex: 1;
+    &:not(:last-child) {
+      margin-right: 4.5rem;
+    }
+  }
+  &__row--65 {
+    flex-basis: 65%;
+  }
+  &__row--35 {
+    flex-basis: 35%;
+  }
+  &__row--60 {
+    flex-basis: 60%;
+  }
+  &__row--30 {
+    flex-basis: 40%;
+  }
+}

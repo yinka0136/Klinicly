@@ -1,0 +1,134 @@
+<header class="header scrolled" #header>
+  <nav class="nav u-container">
+    <div class="nav__col">
+      <!-- MOBILE HEADER -->
+      <div class="mobile-header">
+        <span
+          class="hamburger hamburger--slider-r"
+          role="button"
+          (click)="toggleSideNav()"
+          [ngClass]="showSideNav ? 'is-active' : ''"
+          tabindex="0"
+          aria-label="Menu"
+          aria-controls="navigation"
+        >
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </span>
+      </div>
+
+      <img
+        src="assets/pages/svg/logo-text-light-bg.svg"
+        alt=""
+        class="nav__logo"
+        [routerLink]="['/']"
+      />
+    </div>
+
+    <div class="nav__col">
+      <ul class="nav__list non-mobile-header">
+        <li class="nav__list-item">
+          <a
+            [routerLink]="['/']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
+        </li>
+
+        <li class="nav__list-item">
+          <a [routerLink]="['/features']" routerLinkActive="active">Features</a>
+        </li>
+
+        <li class="nav__list-item">
+          <a [routerLink]="['/compare']" routerLinkActive="active">Pricing</a>
+        </li>
+
+        <li class="nav__list-item">
+          <a [routerLink]="['/whats-new']" routerLinkActive="active"
+            >What’s new?</a
+          >
+        </li>
+        <li class="nav__list-item">
+          <a [routerLink]="['/contact-us']" routerLinkActive="active"
+            >Contact us</a
+          >
+        </li>
+      </ul>
+
+      <a
+      class="btn btn__cta u-no-transform"
+      href="{{ lpStoreUrl }}" target="_blank"
+      >
+      Subscribe
+      </a>
+
+      <!-- <button
+        class="btn btn__cta u-no-transform"
+        [routerLink]="['/login']"
+        *ngIf="guest"
+      >
+        Login
+      </button>
+
+      <button
+        class="btn btn__cta u-no-transform"
+        [routerLink]="['/dashboard']"
+        *ngIf="!guest"
+      >
+        Dashboard
+      </button> -->
+    </div>
+  </nav>
+
+  <aside [class.show]="showSideNav">
+    <ul class="nav__list">
+      <li class="nav__list-item">
+        <a
+          [routerLink]="['/']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="toggleSideNav()"
+          >Home</a
+        >
+      </li>
+
+      <li class="nav__list-item">
+        <a
+          [routerLink]="['/features']"
+          routerLinkActive="active"
+          (click)="toggleSideNav()"
+          >Features</a
+        >
+      </li>
+
+      <li class="nav__list-item">
+        <a
+          [routerLink]="['/compare']"
+          routerLinkActive="active"
+          (click)="toggleSideNav()"
+          >Pricing</a
+        >
+      </li>
+
+      <li class="nav__list-item">
+        <a
+          [routerLink]="['/whats-new']"
+          routerLinkActive="active"
+          (click)="toggleSideNav()"
+          >What’s new?</a
+        >
+      </li>
+
+      <li class="nav__list-item">
+        <a
+          [routerLink]="['/contact-us']"
+          routerLinkActive="active"
+          (click)="toggleSideNav()"
+          >Contact us</a
+        >
+      </li>
+    </ul>
+  </aside>
+</header>
