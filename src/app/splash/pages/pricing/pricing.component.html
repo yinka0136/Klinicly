@@ -1,0 +1,178 @@
+<section class="body" #container>
+  <section class="container">
+    <section class="container__top">
+      <h1 class="title">Plans</h1>
+      <form class="form" action="https://store.lawpavilion.com/products/6">
+        <!-- <nav class="switch-field">
+          <input
+            type="radio"
+            id="individual"
+            name="plan"
+            value="Individual"
+            checked
+          />
+          <label for="individual">Individual</label>
+          <input type="radio" id="enterprise" name="plan" value="Enterprise*" />
+          <label for="enterprise">Enterprise <sup>&#42;</sup></label>
+        </nav> -->
+
+        <ul class="plan-list">
+          <li class="plan-item basic">
+            <h2>Basic</h2>
+            <p>
+              The essential plan to get started for individual practitioners.
+            </p>
+            <p><span>&#10003;</span> Unlimited Search</p>
+            <p><span>&#10003;</span> All Law Reports</p>
+            <p><span>&#10003;</span> Laws of the Federation</p>
+            <p><span>&#10003;</span> Words in Gold</p>
+            <button formaction = 'https://store.lawpavilion.com/products/6?plan=basic'>Subscribe</button>
+          </li>
+          <li class="plan-item standard">
+            <h2>Standard</h2>
+            <p>
+              For individual practitioners looking to increase productivity and
+              turn-around time.
+            </p>
+            <p><span>&#10229;</span> Everything in Basic</p>
+            <p><span>&#10003;</span> Legal Analytics</p>
+            <button formaction = 'https://store.lawpavilion.com/products/6?plan=standard'>Subscribe</button>
+          </li>
+          <li class="plan-item bronze">
+            <h2>Bronze</h2>
+            <p>Explore features in Solicitors and Arbitrators Toolkit.</p>
+            <p>
+              <span>&#10003;</span> Law Reports <br />
+              (FHC, SHC, NIC, SHC, TAT)
+            </p>
+            <p><span>&#10003;</span> Civil Procedure Rules</p>
+            <p><span>&#10003;</span> Regulations</p>
+            <p><span>&#10003;</span> Precedent Forms and Agreement</p>
+            <p><span>&#10003;</span> Court Forms</p>
+            <button formaction = 'https://store.lawpavilion.com/products/6?plan=bronze'>Subscribe</button>
+          </li>
+          <li class="plan-item silver">
+            <h2>Silver</h2>
+            <p>Access to almost everything Primsol has to offer.</p>
+            <p><span>&#10229;</span> Everything in Standard & Bronze</p>
+            <button formaction = 'https://store.lawpavilion.com/products/6?plan=silver'>Subscribe</button>
+          </li>
+          <li class="plan-item gold">
+            <h2>Gold</h2>
+            <p>
+              Explore all features in Prime and SAT online with exclusive access
+              to MS Word Plugin.
+            </p>
+            <div class="spread">
+              <div>
+                <p><span>&#10003;</span> Unlimited Search</p>
+                <p><span>&#10003;</span> All Law Reports</p>
+                <p><span>&#10003;</span> Laws of the Federation</p>
+                <p><span>&#10003;</span> Words in Gold</p>
+              </div>
+              <div>
+                <p><span>&#10003;</span> Civil Procedure Rules</p>
+                <p><span>&#10003;</span> Regulations</p>
+                <p><span>&#10003;</span> Precedent Forms and Agreement</p>
+                <p><span>&#10003;</span> Court Forms</p>
+              </div>
+            </div>
+            <button>Subscribe</button>
+          </li>
+        </ul>
+      </form>
+    </section>
+    <section class="container__middle" id="features" >
+      <main class="features">
+        <h1 class="title">Features</h1>
+        <nav>
+          <span>Basic</span>
+          <span>Standard</span>
+          <span>Bronze</span>
+          <span>Silver</span>
+          <span>Gold</span>
+        </nav>
+      </main>
+      <hr />
+      <aside class="features" *ngFor="let feature of features">
+        <div class="features__description">
+          <h3>{{ feature.name }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+        <nav class="features__plan">
+          <span>Basic</span>
+          <span>Standard</span>
+          <span>Bronze</span>
+          <span>Silver</span>
+          <span>Gold</span>
+        </nav>
+        <nav>
+          <span
+            [style.color]="!feature.plan.Basic && 'rgb(101, 119, 134, 0.4)'"
+            >{{ feature.plan.Basic ? "&#10003;" : "&#10005;" }}</span
+          >
+          <span
+            [style.color]="!feature.plan.Standard && 'rgb(101, 119, 134, 0.4)'"
+            >{{ feature.plan.Standard ? "&#10003;" : "&#10005;" }}</span
+          >
+          <span
+            [style.color]="!feature.plan.Bronze && 'rgb(101, 119, 134, 0.4)'"
+            >{{ feature.plan.Bronze ? "&#10003;" : "&#10005;" }}</span
+          >
+          <span
+            [style.color]="!feature.plan.Silver && 'rgb(101, 119, 134, 0.4)'"
+            >{{ feature.plan.Silver ? "&#10003;" : "&#10005;" }}</span
+          >
+          <span
+            [style.color]="!feature.plan.Gold && 'rgb(101, 119, 134, 0.4)'"
+            >{{ feature.plan.Gold ? "&#10003;" : "&#10005;" }}</span
+          >
+        </nav>
+      </aside>
+    </section>
+    <section class="container__bottom" id="faq" #faq>
+      <h1 class="title"  >Frequently Asked Question</h1>
+      <hr />
+      <section>
+        <aside>
+          <h2 class="heading">TEAMS</h2>
+            <ng-container *ngFor = "let faq of faqs.teams; index as i">
+              <input type="checkbox" id="team-faq{{i}}" class="faq-input" />
+              <label class="faq-label" for="team-faq{{i}}">
+                <h2>{{faq.question}}</h2>
+                <p class="answer" [innerHtml] = "faq.answer"></p>
+              </label>
+            </ng-container>
+        </aside>
+        <aside>
+          <h2 class="heading">LICENSES</h2>
+          <ng-container *ngFor = "let faq of faqs.licenses; index as i">
+            <input type="checkbox" id="license-faq{{i}}" class="faq-input" />
+            <label class="faq-label" for="license-faq{{i}}">
+              <h2>{{faq.question}}</h2>
+              <p class="answer" [innerHtml] = "faq.answer"></p>
+            </label>
+          </ng-container>
+        </aside>
+        <aside>
+          <h2 class="heading">USING PRIMSOL</h2>
+          <ng-container *ngFor = "let faq of faqs.using_primsol; index as i">
+            <input type="checkbox" id="using_primsol-faq{{i}}" class="faq-input" />
+            <label class="faq-label" for="using_primsol-faq{{i}}">
+              <h2>{{faq.question}}</h2>
+              <p class="answer" [innerHtml] = "faq.answer"></p>
+            </label>
+          </ng-container>
+        </aside>
+        <aside>
+          <p class="ask-question">
+            Have more questions?
+            <a class="highlight" [href]="emailstring" target="_top"
+              >Kindly contact our customer care service</a
+            >
+          </p>
+        </aside>
+      </section>
+    </section>
+  </section>
+</section> 

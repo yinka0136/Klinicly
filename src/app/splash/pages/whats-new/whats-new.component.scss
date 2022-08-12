@@ -1,0 +1,158 @@
+@import "partials/abstract/mixins";
+
+// Variables
+$primary-color: #061238;
+$bg-gradient: linear-gradient(
+  180deg,
+  #f1f4fa -25.68%,
+  rgba(255, 255, 255, 0) 79.69%
+);
+$border-gradient: linear-gradient(
+  90deg,
+  #00adff 0%,
+  #63c78f 29.57%,
+  #ffad00 100.25%
+);
+$blue-gradient: linear-gradient(92.56deg, #00adff 5.01%, #68dbff 101.49%);
+$green-gradient: linear-gradient(180deg, #63c78f 0%, #83ce8b 100%);
+$orange-gradient: linear-gradient(91.64deg, #ffad00 7.87%, #ffc345 113.43%);
+$color-text-grey: #233b58;
+$color-text-grey-light: #647589;
+$border-color: #e8ebf2;
+$color-orange: #ffad00;
+
+.main-container {
+  background: $bg-gradient;
+  margin-top: 8rem;
+  min-height: 0;
+  padding: 1rem;
+  @include respond(tab-sm) {
+    margin-top: 6rem;
+  }
+}
+.container {
+  margin: 8rem auto;
+  max-width: 92rem;
+  padding: 8rem 5.6rem;
+  background: #ffffff;
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  border-radius: 2rem;
+  @include respond(tab-sm) {
+    margin-top: 5.4rem;
+    padding: 3.2rem 2.4rem;
+  }
+}
+
+.header {
+  .heading {
+    $font-props: 3.2rem, 500, $primary-color, 4.2rem;
+    @include text($font-props...);
+    padding-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
+    border-bottom: 1px solid $color-orange;
+    border-bottom: 10px solid;
+    border-image-slice: 1;
+    border-width: 1.5px;
+    border-image-source: $border-gradient;
+    @include respond(phone) {
+      font-size: 2.8rem;
+      line-height: 3.6rem;
+    }
+  }
+  .sub-heading {
+    $font-props: 2rem, normal, $color-text-grey-light, 2.6rem;
+    @include text($font-props...);
+    margin-bottom: 4rem;
+    @include respond(phone) {
+      font-size: 1.8rem;
+      line-height: 2.6rem;
+    }
+  }
+}
+
+.note {
+  padding-bottom: 2.4rem;
+  &:not(:last-child) {
+    margin-bottom: 3.2rem;
+    border-bottom: 1px solid $border-color;
+  }
+  &__header {
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 3.2rem;
+    .title {
+      $font-props: 2.8rem, bold, $color-text-grey, 3.6rem;
+      @include text($font-props...);
+      margin-bottom: 0.8rem;
+      @include respond(phone) {
+        font-size: 2rem;
+        line-height: 2.6rem;
+      }
+      .version {
+        display: inline-block;
+        padding: 0.4rem 1.2rem;
+        $font-props: 1.4rem, 500, #ffffff, 1.8rem;
+        @include text($font-props...);
+        border-radius: 4rem;
+        margin-left: 1.6rem;
+        @include respond(phone) {
+          font-size: 1rem;
+          line-height: 1.3rem;
+        }
+        &--1 {
+          background: $blue-gradient;
+        }
+        &--2 {
+          background: $green-gradient;
+        }
+        &--3 {
+          background: $orange-gradient;
+        }
+      }
+    }
+  }
+  &__body {
+    .sub-title {
+      &:not(:last-child) {
+        margin-bottom: 3.2rem;
+      }
+      &__header {
+        $font-props: 2.4rem, bold, $color-text-grey, 3.1rem;
+        @include text($font-props...);
+        margin-bottom: 0.8rem;
+        @include respond(phone) {
+          font-size: 2rem;
+          line-height: 2.6rem;
+        }
+      }
+      &__list {
+        & > :not(:last-child) {
+          margin-bottom: 0.8rem;
+        }
+      }
+      &__list-item {
+        $font-props: 2rem, 400, $color-text-grey, 2.6rem;
+        @include text($font-props...);
+        margin-left: 2rem;
+        @include respond(phone) {
+          font-size: 1.8rem;
+          line-height: 2.6rem;
+        }
+      }
+    }
+  }
+  &__time {
+    &--icon {
+      margin-right: 1rem;
+    }
+    &--text {
+      $font-props: 1.8rem, 500, $color-text-grey-light, 2.3rem;
+      @include text($font-props...);
+      @include respond(phone) {
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+      }
+    }
+  }
+}

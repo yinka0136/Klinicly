@@ -1,0 +1,229 @@
+$modal-header-height: 5.2rem;
+$modal-footer-height: 16rem;
+.modal .modal-dialog {
+    margin: unset;
+    width: 35.2rem;
+    position: absolute;
+    right: 0;
+    animation-duration: .5s;
+}
+.modal-content {
+    min-height: 100vh;
+    border: unset;
+}
+.fade-right {
+  opacity: 0;
+  -webkit-transition: all .25s linear;
+  -o-transition: all .25s linear;
+  transition: all .25s linear;
+}
+
+//MODAL STYLE
+.modal-header{
+    height: $modal-header-height;
+    background: #F5F7FA;    
+    padding: 1.6rem;
+    padding-left: 3.6rem;
+    color: #191E51;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-title{
+    font-size: 1.8rem;
+    line-height: 20px;
+    font-weight: 500;
+}
+.btn-close{
+    padding: .8rem 1.5rem;
+    background: #EA4C4C;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    border: none;
+}
+.modal-body{
+    height: calc(100vh - (#{$modal-footer-height} + #{$modal-header-height}));
+    padding: 1.5rem 3rem;
+    overflow-y: auto;
+    text-align: justify;
+}
+.modal-footer{
+    height: $modal-footer-height;
+    padding: 1.5rem 3rem;
+    display: block;
+    border: unset;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #FF7816;
+    background-color: #FFF1E8;
+    border-color: #FF7816;
+}
+.btn-secondary{
+    background: #FFFFFF;
+    border: 1px solid #E2E4EC;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
+    font-size: 1.6rem;
+    color: #415276;
+    transition: all .2rem;
+    width: 100%;
+    height: 5rem;
+    &:focus{
+        box-shadow: unset;
+    }
+    &:hover,
+    &:active,
+    &.active
+    {
+        background: #191E51;
+        color: #FFFFFF
+    }
+}
+.btn-primary{
+    color: #fff;
+    background-color: #FF7816;
+    font-size: 1.6rem;
+    border-color: #FF7816 ;
+    width: 100%;
+    border-radius: 3px;
+    height: 5rem;
+    &:focus{
+        box-shadow: unset;
+    }
+    &:hover,
+    &:active
+    {
+        background: #FFF1E8;
+        color: #FF7816;
+    }
+}
+.modal-title{
+    text-transform: capitalize;
+}
+.modal-text{
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 2.0rem;
+    color: #415276;
+}
+.modal-headings{
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.0rem;
+    color: #191E51;
+}
+.u-mb-20{
+    margin-bottom: 2rem;
+}
+.u-mt-20{
+    margin-top: 2rem;
+}
+.checkbox{
+    display: flex;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1.5px solid #6F7B94;
+    box-sizing: border-box;
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: .3rem;
+    cursor: pointer;
+}
+.form-check-input{
+    display: none;
+}
+.form-check-input:checked +label .checkbox{
+    background: #0148DF;
+    border: 1px solid #0148DF;
+}
+.form-check-input:checked ~ .check-text{
+    color: #191E51;
+}
+.form-check.form-check-inline{
+    display: flex;
+    align-items: center;
+}
+.form-check:not(:last-child){
+    margin-bottom: 1.4rem;
+}
+.check-text{
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 2.0rem;
+    color: #6F7B94;
+}
+.modal-body .modal-body__heading:not(:first-of-type){
+    margin-top: 5.6rem;
+}
+.modal-body__heading{
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.7rem;
+    text-transform: uppercase;
+    color: #6F7B94;
+}
+.form-control.select{
+    height: 5.2rem;
+    border: none;
+    font-size: 1.6rem;
+    color: #222753;
+    background: #FFFFFF;
+    border: 1px solid #E2E4EC;
+    border-right: unset;
+    box-sizing: border-box;
+    border-radius: 3px;
+    &:focus{
+        box-shadow: unset;
+        outline: unset;
+    }
+    &::placeholder{
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #D5D8DE;
+        opacity: 0.8;
+    }
+}
+.input-group{
+    height: 5.2rem;
+    border-radius: 4px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.04);
+    &-text{
+        background: #FFFFFF;
+        border: 1px solid #E2E4EC;
+        border-left: unset;
+        border-radius: 4px;
+        font-size: 1.6rem;
+    }
+    &> &-prepend> &-text {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+}
+.sort__block{
+    position: relative;
+}
+.select-options{
+    position: absolute;
+    height:15.6rem;
+    background: #FFFFFF;
+    border: 1px solid #E2E4EC;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
+    margin-top: 1rem;
+    overflow-y: auto;
+    z-index: 20000;
+}
+.option{
+    padding: 1.6rem 2.4rem;
+    font-size: 1.3rem;
+    line-height: 1.7rem;
+    color: #415276;
+    &:hover{
+        background: #E2E4EC;
+    }
+}

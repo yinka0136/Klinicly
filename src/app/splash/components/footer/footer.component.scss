@@ -1,4 +1,4 @@
-@import "../../../partials/mixins";
+@import "partials/abstract/mixins";
 
 .sm-show {
   display: none;
@@ -15,7 +15,7 @@
 }
 
 .footer {
-  padding: 10rem 3rem;
+  padding: 10rem 0;
   background: #061238;
 
   @include respond(phone) {
@@ -109,7 +109,7 @@
     width: 16.2rem;
     margin-bottom: 4rem;
   }
-  
+
   &__copy {
     font-weight: normal;
     font-size: 1.4rem;
@@ -167,11 +167,11 @@
     color: currentColor;
   }
 }
-.copy{
+.copy {
   margin: 4rem 0;
   $font-props: 1.2rem, 500, #657786, 1.6rem;
   @include text($font-props...);
-  @include respond(phone){
+  @include respond(phone) {
     margin: 2.5rem 0;
     margin-top: unset;
     display: flex;

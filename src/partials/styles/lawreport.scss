@@ -1,0 +1,208 @@
+@import "../../partials/mixins";
+
+.body {
+  padding: 4.4rem 3.6rem 3rem;
+  overflow-y: hidden;
+  &__header {
+    display: flex;
+    margin-bottom: 2.5rem;
+    align-items: center;
+
+    @include respond(phone) {
+      display: block;
+      margin: 0 0 2.4rem;
+    }
+    &--title {
+      font-size: 3.4rem;
+      font-weight: 500;
+      color: #415276;
+      margin-right: 2rem;
+      text-transform: capitalize;
+
+      @include respond(tab-port) {
+        font-size: 2.7rem;
+      }
+
+      @include respond(tab-sm) {
+        margin-right: 0;
+      }
+
+      @include respond(phone) {
+        font-size: 2rem;
+        font-weight: 500;
+        color: #415276;
+      }
+    }
+  }
+
+  &__details {
+    &--header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem;
+      background: #ffffff;
+      border: 0.7px solid #e2e4ec;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.04);
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+      & * {
+        height: 3.6rem;
+      }
+      .first-column {
+        display: flex;
+        flex: 1;
+
+        .form-group {
+          flex: 1;
+
+          .input-group {
+            height: 3.6rem;
+            width: 100%;
+            max-width: 44.4rem;
+            border-radius: 4px;
+
+            .form-control {
+              height: 3.6rem;
+              border: none;
+              font-size: 1.6rem;
+              color: #222753;
+              background: #f5f7fa;
+              border: 0.7px solid #e2e4ec;
+              border-right: unset;
+              box-sizing: border-box;
+              border-radius: 4px;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+              &:focus {
+                box-shadow: unset;
+                outline: unset;
+                & + .input-group-prepend path {
+                  fill: #222753;
+                }
+              }
+              &::placeholder {
+                font-size: 1.6rem;
+                font-weight: 400;
+                color: #6f7b94;
+                opacity: 0.3;
+              }
+            }
+
+            &-text {
+              background: #f5f7fa;
+              border: 0.7px solid #e2e4ec;
+              border-left: unset;
+              border-radius: 4px;
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+              font-size: 1.6rem;
+            }
+
+            & > &-prepend > &-text {
+              border-top-right-radius: 4px;
+              border-bottom-right-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+
+    &--body {
+      background: #ffffff;
+      border: 0.7px solid #e2e4ec;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.04);
+      border-radius: 4px;
+      overflow-y: auto;
+      margin-bottom: 2.74rem;
+    }
+  }
+
+  @include respond(phone) {
+    padding: 3.8rem 2.5rem 2.5rem;
+  }
+}
+
+.notification__tag {
+  display: flex;
+  font-size: 1.2rem;
+  border-radius: 70px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 2rem;
+  &--square {
+    padding: 0.8rem 1.5rem;
+    border: 0.7px solid #e2e4ec;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+
+  @include respond(tab-sm) {
+    margin-left: 2rem;
+    width: max-content;
+  }
+
+  @include respond(phone) {
+    margin-top: 0.9rem;
+    margin-left: 0;
+  }
+}
+
+.update-tag {
+  background-color: #fff0d9;
+  color: #7b4a00;
+}
+
+// FILTER
+.filter {
+  padding: 0.8rem 2rem;
+  background: #e2efff;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 20px;
+  color: #415276;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  & .item-icon {
+    padding-top: 0.7rem;
+    padding-right: 1.1rem;
+  }
+
+  @include respond(phone) {
+    padding: 1.1rem 0rem 1.1rem 0.7rem;
+  }
+}
+
+.mat-paginator {
+  flex: 1;
+  margin: 0;
+  width: max-content;
+
+  .mat-paginator-container {
+    padding: 0;
+  }
+}
+
+aside {
+  margin: 2rem 0 0;
+  display: flex;
+
+  .pager-button {
+    color: #415276;
+    padding: 0.5rem 1.5rem;
+    background: #e2e4ec;
+    border: none;
+    border-radius: 0.2rem;
+    text-transform: uppercase;
+
+    &:disabled {
+      color: #a5adbd;
+    }
+  }
+}

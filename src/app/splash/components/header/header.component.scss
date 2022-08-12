@@ -1,4 +1,4 @@
-@import "../../../partials/mixins";
+@import "partials/abstract/mixins";
 
 $hamburger-layer-color: #8995ab;
 $hamburger-layer-width: 24px;
@@ -17,7 +17,7 @@ $hamburger-padding-y: 0;
   z-index: 10;
   padding: 0 2.377rem;
   &.scrolled {
-    background: #ffffff;
+    background: transparent;
     // box-shadow: 0px 4px 24px rgba(0, 23, 81, 0.06);
   }
   @include respond(phone) {

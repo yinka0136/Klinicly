@@ -1,0 +1,346 @@
+<main class="main">
+  <section class="section heading">
+    <img class="gradient" src="assets/landing/img/gradient1.svg" />
+    <img class="gradient" src="assets/landing/img/gradient2.svg" />
+    <img class="gradient" src="assets/landing/img/gradient3.svg" />
+    <div class="u-container">
+      <div class="hero">
+        <!-- <div class="first-column">
+          <h2 class="heading__2 heading__heading">
+            Join the
+            <span>League of</span>
+            <span class="d-block">Smart Lawyers</span>
+          </h2>
+          <p class="heading__paragraph">
+            Primsol is an all-in-one legal management software for your law
+            practice, providing all resources you need to increase efficiency
+            and scale your legal research.
+          </p>
+          <a
+            href="{{ lpStoreUrl }}"
+            target="_blank"
+            class="btn__primary--inverse"
+          >
+           
+          </a>
+        </div> -->
+        <!-- <div class="second-column">
+          <ng-container *ngIf="!guest">
+            <div class="loggedIn">
+              <p class="paragraph">You are already logged In</p>
+              <button class="btn__primary" (click)="goToDashboard()">
+                Go to Dashboard
+              </button>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="guest">
+            <app-options-fields
+              *ngIf="(mode | async) === 'optionsMode'"
+              [mode]="mode"
+              [emailValue]="email"
+              [passwordValue]="password"
+            ></app-options-fields>
+            <app-otp-email
+              *ngIf="(mode | async) === 'otpEmail'"
+              [mode]="mode"
+              [emailValue]="email"
+              [primsolId] = "primsolId"
+            ></app-otp-email>
+            <app-otp-code
+              *ngIf="(mode | async) === 'otpCode'"
+              [mode]="mode"
+              [emailValue]="email"
+              [primsolId] = "primsolId"
+            ></app-otp-code>
+            <app-login-fields
+              *ngIf="['passwordMode', 'emailMode'].includes(mode | async)"
+              [mode]="mode"
+              [emailValue]="email"
+              [passwordValue]="password"
+            ></app-login-fields>
+          </ng-container>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section sectors">
+    <div class="u-container">
+      <h2 class="sectors__heading">
+        We’ve got all <span>sectors</span> covered
+      </h2>
+      <div class="row" #section1>
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="sectors_card">
+            <div class="sectors_card-img">
+              <img src="assets/landing/svg/building.svg" alt="" />
+            </div>
+            <h4>Health-tech Companies</h4>
+            <p>
+              With Klinicly, health-tech companies would have an Open API with
+              Nigerian formulary that they can plug into their solution.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="sectors_card">
+            <div class="sectors_card-img">
+              <img src="assets/landing/svg/folder_favorite.svg" alt="" />
+            </div>
+            <h4>Health Insurance Providers</h4>
+            <p>
+              With Klinicly, Health Insurance Providers can easily populate drug
+              inventory within their product and dispense medication.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="sectors_card">
+            <div class="sectors_card-img">
+              <img src="assets/landing/svg/health.svg" alt="" />
+            </div>
+            <h4>Manufacturers</h4>
+            <p>
+              Klinicly is a reliable product where manufacturers can promote
+              their new products with ease.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about">
+    <div class="u-container">
+      <div class="flex-container" #section2>
+        <div class="col-12 col-md-5 col-lg-5">
+          <img
+            src="assets/landing/img/spilled.svg"
+            alt="spilled drugs"
+            class="about__img"
+          />
+        </div>
+        <div class="col-12 col-md-7 col-lg-7">
+          <div class="about_card">
+            <h2 class="about__heading">
+              Move <span>beyond</span> the ordinary with Klincly
+            </h2>
+            <p class="about__paragraph">
+              Klinicky Is an Open-Source API that enables innovators and
+              health-tech businesses to easily embed and distribute genuine
+              drugs using our formulary within their products with the aim to
+              fully digitize healthcare processes within Africa. Collaborators
+              within the products includes (Health-tech companies, HMOs,
+              Hospitals, Manufacturers)
+            </p>
+            <button class="btn_outlined btn_white btn_md">More About Us</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="u-container">
+      <div class="about_bottom">
+        <h3>
+          We are progressively making <span>impact</span> and growing
+          consistently.
+        </h3>
+        <div class="about_bottom__pill">
+          <div class="about_bottom__pill-item">
+            <h2 class="about_bottom__pill-item__heading">900+</h2>
+            <p class="about_bottom__pill-item__paragraph">API Calls</p>
+          </div>
+          <div class="about_bottom__pill-item">
+            <h2 class="about_bottom__pill-item__heading">40+</h2>
+            <p class="about_bottom__pill-item__paragraph">Partners</p>
+          </div>
+          <div class="about_bottom__pill-item">
+            <h2 class="about_bottom__pill-item__heading">300+</h2>
+            <p class="about_bottom__pill-item__paragraph">Drugs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lifting">
+    <div class="u-container">
+      <div class="flex-container" #section3>
+        <div class="flex-container__full-row">
+          <h2 class="lifting__heading">
+            We’ve done the heavy <br />
+            lifting for <span>you</span>
+          </h2>
+          <div class="lifting_timeline">
+            <div class="lifting_timeline-item one">
+              <p class="lifting_timeline-item__paragraph">
+                We help you get direct access to multiple medical brands in one
+                place without worrying about multiple partnerships, integrations
+                or compliance.
+              </p>
+            </div>
+            <div class="lifting_timeline-item two">
+              <p class="lifting_timeline-item__paragraph">
+                With Klinicly, you get access to a significant and well robust
+                drugs database in the health value chain.
+              </p>
+            </div>
+            <div class="lifting_timeline-item three">
+              <p class="lifting_timeline-item__paragraph">
+                We enable seamless and direct integrations into your platform.
+                Built on a framework that lets you easily deploy Klinicly into
+                healthcare products.
+              </p>
+            </div>
+            <div class="lifting_timeline-item four">
+              <p class="lifting_timeline-item__paragraph">
+                We offer robust support documentation for seamless integrations
+                and API management.
+              </p>
+            </div>
+            <div class="lifting_timeline-item five">
+              <p class="lifting_timeline-item__paragraph">
+                With Klinicly, healthcare Patients get prescribed with the right
+                medication which includes Nigerian Brands, Generic and Strength,
+                Mode of Administration using our API as a service.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-container__full-row">
+          <img
+            src="assets/landing/img/drugs.svg"
+            alt="features of Primsol"
+            class="lifting__img"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section partners">
+    <div class="u-container">
+      <h3 class="partners__heading">
+        Partners creating <span>impact</span> with us
+      </h3>
+      <div class="partners__logo-container">
+        <img
+          src="assets/landing/img/aven.svg"
+          alt="partners logo"
+          class="partners__logo"
+        />
+        <img
+          src="assets/landing/img/aven.svg"
+          alt="partners logo"
+          class="partners__logo"
+        />
+        <img
+          src="assets/landing/img/aven.svg"
+          alt="partners logo"
+          class="partners__logo"
+        />
+        <img
+          src="assets/landing/img/aven.svg"
+          alt="partners logo"
+          class="partners__logo"
+        />
+        <img
+          src="assets/landing/img/aven.svg"
+          alt="partners logo"
+          class="partners__logo"
+        />
+        <img
+          src="assets/landing/img/aven.svg"
+          alt="partners logo"
+          class="partners__logo"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section documentation" #section4>
+    <img
+      src="assets/landing/img/documentation.svg"
+      alt="documentation"
+      class="documentation__img"
+    />
+    <div class="u-container">
+      <div class="flex-container">
+        <div class="col-12 col-md-7 col-lg-8">
+          <h2 class="documentation__heading">
+            Well documented and <span>easy-to-use APIs</span> for developers
+          </h2>
+          <p class="documentation__paragraph">
+            We understand the crux of good developer experience while
+            interfacing with an <br />
+            API. Our developer-friendly documentation and guide will get you
+            started on <br />
+            how to embed these APIs into your solution.
+          </p>
+          <div class="documentation_list">
+            <div class="documentation_list-item">
+              <div class="top">
+                <img src="assets/landing/svg/note.svg" alt="Note" />
+                <h4 class="documentation_list__heading">Comprehensive Guide</h4>
+              </div>
+              <p class="documentation__paragraph">
+                Easily follow our documentation guide on how to use the APIs
+              </p>
+            </div>
+            <div class="documentation_list-item">
+              <div class="top">
+                <img
+                  src="assets/landing/svg/document_text.svg"
+                  alt="Document"
+                />
+                <h4 class="documentation_list__heading">Docs Reference</h4>
+              </div>
+              <p class="documentation__paragraph">
+                Get access to our docs for Reference during implementation
+              </p>
+            </div>
+            <div class="documentation_list-item">
+              <div class="top">
+                <img src="assets/landing/svg/code.svg" alt="Code" />
+                <h4 class="documentation_list__heading">API Snippet</h4>
+              </div>
+              <p class="documentation__paragraph">
+                Find snippets on APIs structures to view what the JSON Data
+                <br />
+                looks like.
+              </p>
+            </div>
+          </div>
+          <button class="btn_primary btn_md">Read API Docs</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section plans">
+    <div class="u-container">
+      <h2 class="plans__heading">
+        We’ve got the right <span>plan</span> for you
+      </h2>
+      <div class="row" #section1>
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="plans_card">
+           <div class="plans_card-head">
+            
+           </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="plans_card">
+            
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="plans_card">
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
