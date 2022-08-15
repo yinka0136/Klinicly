@@ -1,5 +1,6 @@
 // Button Primary
 .btn_primary {
+  font-family: $nunito_font_bold;
   background: $accent;
   box-shadow: 0 0.4rem 0.8rem -0.1rem rgba(35, 65, 179, 0.25);
   border-radius: 0.8rem;
@@ -7,7 +8,7 @@
   line-height: 150%;
   color: $light-100;
   transition: 0.3s all ease-in-out;
-border: none;
+  border: none;
   &:hover,
   &:focus {
     border-radius: 4rem;
@@ -16,10 +17,15 @@ border: none;
   &:disabled {
     background: rgba($header, 0.15);
   }
+  @include respond(phone) {
+    padding: 1.2rem !important;
+    font-size: 1.4rem !important;
+  }
 }
 
 // Button Outlined
 .btn_outlined {
+  font-family: $nunito_font_bold;
   background: transparent;
   border: 0.1rem solid $accent;
   box-shadow: 0 0.2rem 0.8rem -0.1rem rgba(255, 136, 0, 0.15);
@@ -32,14 +38,20 @@ border: none;
   &:focus {
     border: 0.1rem solid $accent;
     color: $accent;
+    border-radius: 4rem;
   }
   &:disabled {
     border: 0.1rem solid #bababd;
+  }
+  @include respond(phone) {
+    padding: 1.2rem !important;
+    font-size: 1.4rem !important;
   }
 }
 
 // Button Subtle
 .btn_subtle {
+  font-family: $nunito_font_bold;
   background: transparent;
   border: 0.1 solid rgba($dark, 0.2);
   border-radius: 0.8rem;
@@ -55,10 +67,14 @@ border: none;
     border: 0.1rem solid #bababd;
     color: #bababd;
   }
+  @include respond(phone) {
+    padding: 1.2rem !important;
+    font-size: 1.4rem !important;
+  }
 }
 
 .btn_md {
-  padding: 1.2rem 2.4rem; 
+  padding: 1.2rem 2.4rem;
   font-size: 1.6rem;
 }
 
@@ -70,6 +86,52 @@ border: none;
 .btn_white {
   color: $light-100;
   border: 1px solid $light-100;
+}
+
+.btn_full {
+  width: 100%;
+}
+.accordion-button {
+  padding: 1.6rem 0 !important;
+  border-bottom: 0.1rem solid rgba($dark, 0.2) !important;
+  font-family: $nunito_font_bold !important;
+  font-weight: 700 !important;
+  font-size: 1.8rem !important;
+  line-height: 150% !important;
+  color: $dark !important;
+  background-color: inherit !important;
+  border: 0 !important;
+  overflow-anchor: none !important;
+  transition: 0.8s all ease-in-out;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+  &:not(.collapsed)::after {
+    background-image: url(../../assets/landing/svg/close.svg);
+    transform: rotate(0deg) !important;
+  }
+  &::after {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-left: auto;
+    content: "";
+    background-image: url(../../assets/landing/svg/add.svg);
+    background-repeat: no-repeat;
+    background-size: 3.2rem;
+    transition: 0.3s all ease-in-out;
+  }
+}
+.accordion-item {
+  // background-color: var(--bs-accordion-bg);
+  border: none;
+}
+.accordion-body {
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 150% !important;
+  color: $dark !important;
 }
 
 .badge {

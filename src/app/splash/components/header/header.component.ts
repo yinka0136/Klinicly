@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 // import { environment } from "@env/environment";
 // import { CurrentUserService } from "@services/current-user/current-user.service";
 
@@ -8,12 +8,14 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Input() scrolled!: boolean;
   @ViewChild('header') header!: ElementRef<HTMLDivElement>;
   public guest!: boolean;
   public showSideNav = false;
   lpStoreUrl = 'register';
 
-  constructor() { // private currentUserService: CurrentUserService
+  constructor() {
+    // private currentUserService: CurrentUserService
     // this.guest = !currentUserService.getCurrentUser();
   }
 

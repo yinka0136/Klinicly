@@ -1,8 +1,7 @@
 @import "partials/abstract/mixins";
 @import "partials/abstract/variables";
 
-$color-primary: #ff7b01;
-$color-primary-light: #fff1e8;
+$nav_height: 7.2rem;
 main {
   overflow: hidden;
   padding: 0;
@@ -68,6 +67,7 @@ section {
   max-width: 112rem;
   height: 100%;
   margin: 0 auto;
+  position: relative;
 }
 
 @include respond(phone) {
@@ -77,84 +77,136 @@ section {
 }
 
 .heading {
-  height: 100%;
   position: relative;
+  height: 100vh;
   margin: 0 auto;
-  .gradient {
-    width: 100%;
-    left: 0;
-    animation-name: FadeInOut;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 6s;
+  width: 100%;
+  animation-name: FadeInOut;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-    &:not(:nth-of-type(1)) {
-      position: absolute;
+  .pill {
+    position: absolute;
+    &:nth-child(1) {
+      left: 5%;
+      top: 15%;
     }
-    &:nth-of-type(1) {
-      animation-delay: 5s;
+    &:nth-child(2) {
+      top: 30%;
+      right: 5%;
     }
-    &:nth-of-type(2) {
-      animation-delay: 3s;
+    &:nth-child(3) {
+      left: 5%;
+      bottom: 10%;
     }
-    &:nth-of-type(3) {
-      animation-delay: 0s;
-    }
-  }
-  @include respond(phone) {
-    padding: 11.6rem 0 0 0;
-    height: auto;
-    padding-bottom: 6rem;
-    background-image: linear-gradient(
-      274.12deg,
-      #f1f4fa -3.62%,
-      rgba(255, 255, 255, 0) 94.59%
-    );
-
-    & .img-container {
-      overflow-x: hidden;
+    &:nth-child(4) {
+      right: 15%;
+      bottom: 33%;
     }
   }
 
-  // &::after {
-  //   content: "";
-  //   width: 70rem;
-  //   height: 70rem;
-  //   border-radius: 50%;
-  //   background: #f1f4fa;
-  //   opacity: 0.5;
-  //   position: absolute;
-  //   left: 6rem;
-  //   bottom: -20.8rem;
-  //   z-index: -1;
+  &_counts {
+    position: absolute;
+    right: 0;
+    top: calc(13.2rem + $nav_height);
+    & > :not(:last-child) {
+      padding-bottom: 4rem;
+    }
+    &-count {
+      // border-left: 0.1rem solid rgba($dark, 0.2);
+      .head {
+        width: 8rem;
+        height: 8rem;
+        border: 0.1rem solid rgba(15, 23, 51, 0.15);
+        border-radius: 3.2rem;
+        // outline: 2rem solid $light-100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h4 {
+          font-family: $nunito_font_extra_bold;
+          font-weight: 900;
+          font-size: 2rem;
+          line-height: 2.4rem;
+          text-align: center;
+          color: $accent;
+        }
+        p {
+          font-family: $nunito_font_extra_bold;
+          font-weight: 600;
+          font-size: 1.2rem;
+          line-height: 150%;
+          text-align: center;
+          color: $body;
+        }
+      }
+    }
+  }
+  &_hero {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: calc(10rem + $nav_height);
+  }
 
-  //   @include respond(tab-port) {
-  //     display: none;
-  //   }
-  // }
+  &__header {
+    max-width: 76.2rem;
+    font-family: $nunito_font_extra_bold;
+    font-weight: 900;
+    font-size: 5.4rem;
+    line-height: 110%;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: $header;
+    span {
+      color: $accent;
+    }
+    margin-bottom: 2.4rem;
+  }
 
   &__paragraph {
-    font-weight: normal;
-    font-size: 2rem;
-    line-height: 170.5%;
+    max-width: 76.2rem;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 150%;
     text-align: center;
-    color: #657786;
-    max-width: 63.8rem;
-    margin: 3.6rem auto;
-    margin-bottom: 6rem;
-
+    color: $body;
+    margin-bottom: 4rem;
     @include respond(phone) {
-      text-align: left;
-      margin: 1.6rem auto;
-      padding: 0 3rem;
+      margin-bottom: 2rem;
     }
   }
-  &__img-container {
+  &__buttons {
+    & > :first-child {
+      margin-right: 1.6rem;
+    }
+    margin-bottom: 5.5rem;
+    @include respond(phone) {
+      margin-bottom: 2rem;
+    }
   }
   &__img {
     width: 100%;
     position: relative;
     z-index: 2;
+    margin-left: 15%;
+    margin-top: auto;
+  }
+  @include respond(phone) {
+    padding: 11.6rem 0 0 0;
+    height: auto;
+    padding-bottom: 6rem;
+
+    & .img-container {
+      overflow-x: hidden;
+    }
   }
 }
 
@@ -506,6 +558,7 @@ section {
     border-bottom-left-radius: 1.2rem;
     @include respond(phone) {
       width: 80%;
+      bottom: -16rem;
     }
   }
   &__heading {
@@ -550,6 +603,8 @@ section {
         margin-bottom: 2rem;
         img {
           margin-right: 3.2rem;
+          width: 3.2rem;
+          height: 3.2rem;
         }
       }
     }
@@ -576,10 +631,6 @@ section {
     & .u-container .flex-container:first-child {
       margin-bottom: 1.4rem;
     }
-
-    & .u-container .flex-container:last-child img {
-      width: 100%;
-    }
   }
 }
 
@@ -597,28 +648,164 @@ section {
     }
   }
   &_card {
-    padding: .8rem;
+    cursor: crosshair;
+    padding: 0.8rem 0.8rem 4rem;
     background: $light-100;
-    border: .1rem solid rgba(15, 23, 51, 0.1);
-box-shadow: 0 1.2rem 2.4rem rgba(37, 99, 235, 0.1);
-border-radius: 1.6rem;
+    border: 0.1rem solid rgba(15, 23, 51, 0.1);
+    box-shadow: 0 1.2rem 2.4rem rgba(37, 99, 235, 0.1);
+    border-radius: 1.6rem;
     align-items: center;
     flex-direction: column;
     display: flex;
     height: 100%;
-   
-&-head{
-  border-radius: 12px;
-}
 
-&.active{
-  &-head{
-   background: $accent;
+    &-head {
+      width: 100%;
+      margin-bottom: 0.8rem;
+      border-radius: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.6rem;
+      transition: all 0.6s ease-in-out;
+
+      &__title {
+        font-family: $nunito_font_extra_bold;
+        margin-bottom: 1.6rem;
+        text-align: center;
+      }
+      &__border {
+        margin: auto;
+        margin-bottom: 3rem;
+        border: 0.4rem solid $accent;
+        width: 3.2rem;
+        border-radius: 1rem;
+      }
+      &__price {
+        margin: auto;
+        display: flex;
+        align-items: baseline;
+        h2 {
+          font-family: $nunito_font_extra_bold;
+          margin-right: 0.4rem;
+        }
+        p {
+          font-weight: 700;
+          font-size: 1.8rem;
+          line-height: 150%;
+          color: $body;
+        }
+      }
+    }
+
+    &-list {
+      margin-bottom: 5.4rem;
+      @include respond(phone) {
+        margin-bottom: 1.6rem;
+      }
+      padding-top: 3.2rem;
+      border-top: 0.1rem solid rgba($dark, 0.1);
+      &__item {
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        img {
+          margin-right: 1.2rem;
+        }
+        p {
+          font-weight: 400;
+          font-size: 1.4rem;
+          line-height: 2.1rem;
+          color: $body;
+        }
+      }
+    }
+
+    &:hover {
+      .plans_card-head {
+        background: $accent;
+        .plans_card-head__title {
+          color: $light-100;
+        }
+        .plans_card-head__border {
+          border: 0.4rem solid $light-100;
+        }
+        .plans_card-head__price {
+          h2 {
+            color: $light-100;
+          }
+          p {
+            color: rgba($light-100, 0.8);
+          }
+        }
+      }
+
+      .btn_outlined {
+        background: $accent;
+        box-shadow: 0 0.4rem 0.8rem -0.1rem rgba(35, 65, 179, 0.25);
+        border-radius: 0.8rem;
+        font-weight: 700;
+        line-height: 150%;
+        color: $light-100;
+        transition: 0.3s all ease-in-out;
+        border: none;
+        &:hover,
+        &:focus {
+          border-radius: 4rem;
+          background: linear-gradient(180deg, $gradient1 0%, $gradient2 100%);
+        }
+        &:disabled {
+          background: rgba($header, 0.15);
+        }
+      }
+    }
+  }
+
+  @include respond(phone) {
+    padding: 6rem 0 0 0;
+    margin: 4rem 0;
+
+    & .u-container {
+      padding: 0 2.5rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+    .img {
+      margin-bottom: 0 !important;
+    }
+    .row {
+      & :not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+
+    & .u-container .flex-container:last-child img {
+      width: 100%;
+    }
   }
 }
 
+.answers {
+  height: 100%;
+  padding: 2.2rem 0 5.7rem;
+  &__heading {
+    text-align: center;
+    margin-bottom: 6.4rem;
+    font-family: $nunito_font_extra_bold;
+    span {
+      color: $accent;
+    }
   }
 
+  .u-container {
+    max-width: 93.4rem;
+  }
   @include respond(phone) {
     padding: 6rem 0 0 0;
     margin: 4rem 0;
@@ -646,26 +833,17 @@ border-radius: 1.6rem;
   }
 }
 
-.pricing {
-  margin-bottom: 19.3rem;
-  position: relative;
-  height: 86.3rem;
-  &__img {
-    position: absolute;
-    right: 0;
-    bottom: -11rem;
-    border-bottom-left-radius: 1.2rem;
-    @include respond(phone) {
-      width: 80%;
-    }
-  }
+.questions {
+  background: $light-200;
+  height: 100%;
+  margin-top: 8rem;
+  padding: 7.2rem 0 8.4rem;
   &__heading {
+    margin-bottom: 1.6rem;
     font-family: $nunito_font_extra_bold;
-    color: $light-100;
     span {
-      color: $aqua;
+      color: $accent;
     }
-    margin-bottom: 3.2rem;
     @include respond(phone) {
       margin-bottom: 1.2rem;
     }
@@ -673,20 +851,117 @@ border-radius: 1.6rem;
   &__paragraph {
     font-style: normal;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     line-height: 150%;
-    color: $light-100;
-    margin-bottom: 3.2rem;
+    color: $body;
+    margin-bottom: 4rem;
     @include respond(phone) {
       margin-bottom: 1.2rem;
+    }
+  }
+  &_type {
+    display: flex;
+    margin-bottom: 3.2rem;
+    img {
+      margin-right: 1.8rem;
+    }
+    &__heading {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: $body;
+    }
+  }
+
+  &_card {
+    width: 100%;
+
+    background: $light-100;
+    border: 0.1rem solid rgba($dark, 0.1);
+    box-shadow: 0px 12px 24px rgba(37, 99, 235, 0.1);
+    border-radius: 1.6rem;
+    padding: 3.2rem;
+  }
+
+  @include respond(phone) {
+    padding: 6rem 0;
+    margin: 4rem 0;
+    & .flex-container {
+      flex-direction: column;
+      & > :not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    & .u-container {
+      padding: 0 2.5rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+  }
+}
+
+.burden {
+  background: $light-100;
+  height: 100%;
+  padding: 12rem 0;
+
+  &_card {
+    background: $accent;
+    border-radius: 4.8rem;
+    padding: 7.8rem 10.5rem 6.2rem;
+    @include respond(phone) {
+      margin-bottom: 2rem;
+      padding: 2rem;
+    }
+  }
+  &__heading {
+    text-align: center;
+    margin-bottom: 4.6rem;
+    font-family: $nunito_font_extra_bold;
+    font-weight: 900;
+    line-height: 120%;
+    color: $light-100;
+
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  .btn_started {
+    background: $dark;
+    box-shadow: 0px 4px 8px -1px rgba(35, 65, 179, 0.25);
+    border-radius: 0.8rem;
+    font-weight: 800;
+    font-size: 1.8rem;
+    line-height: 150%;
+    color: $light-100;
+    transition: 0.3s all ease-in-out;
+    border: none;
+    &:hover,
+    &:focus {
+      border-radius: 4rem;
+      background: $light-100;
+      color: $accent;
+    }
+    &:disabled {
+      background: rgba($header, 0.15);
     }
   }
 
   @include respond(phone) {
     padding: 6rem 0;
-
+    margin: 4rem 0;
     & .flex-container {
       flex-direction: column;
+      & > :not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
     }
 
     & .u-container {
@@ -1121,16 +1396,12 @@ input::-webkit-input-placeholder {
 
 @keyframes FadeInOut {
   0% {
-    opacity: 1;
+    background-image: url(../../../../assets/landing/img/gradient1.svg);
   }
-
-  25% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
+  33% {
+    background-image: url(../../../../assets/landing/img/gradient2.svg);
   }
   100% {
-    opacity: 1;
+    background-image: url(../../../../assets/landing/img/gradient3.svg);
   }
 }

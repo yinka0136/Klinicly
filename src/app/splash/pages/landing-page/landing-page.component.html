@@ -1,65 +1,50 @@
+<div id="canvas">
+  <div class="e"></div>
+</div>
+
 <main class="main">
   <section class="section heading">
-    <img class="gradient" src="assets/landing/img/gradient1.svg" />
-    <img class="gradient" src="assets/landing/img/gradient2.svg" />
-    <img class="gradient" src="assets/landing/img/gradient3.svg" />
+    <img src="assets/landing/svg/Pill1.svg" alt="pill" class="pill" />
+    <img src="assets/landing/svg/Pill2.svg" alt="pill" class="pill" />
+    <img src="assets/landing/svg/Pill3.svg" alt="pill" class="pill" />
+    <img src="assets/landing/svg/Pill4.svg" alt="pill" class="pill" />
     <div class="u-container">
-      <div class="hero">
-        <!-- <div class="first-column">
-          <h2 class="heading__2 heading__heading">
-            Join the
-            <span>League of</span>
-            <span class="d-block">Smart Lawyers</span>
-          </h2>
-          <p class="heading__paragraph">
-            Primsol is an all-in-one legal management software for your law
-            practice, providing all resources you need to increase efficiency
-            and scale your legal research.
-          </p>
-          <a
-            href="{{ lpStoreUrl }}"
-            target="_blank"
-            class="btn__primary--inverse"
-          >
-           
-          </a>
-        </div> -->
-        <!-- <div class="second-column">
-          <ng-container *ngIf="!guest">
-            <div class="loggedIn">
-              <p class="paragraph">You are already logged In</p>
-              <button class="btn__primary" (click)="goToDashboard()">
-                Go to Dashboard
-              </button>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="guest">
-            <app-options-fields
-              *ngIf="(mode | async) === 'optionsMode'"
-              [mode]="mode"
-              [emailValue]="email"
-              [passwordValue]="password"
-            ></app-options-fields>
-            <app-otp-email
-              *ngIf="(mode | async) === 'otpEmail'"
-              [mode]="mode"
-              [emailValue]="email"
-              [primsolId] = "primsolId"
-            ></app-otp-email>
-            <app-otp-code
-              *ngIf="(mode | async) === 'otpCode'"
-              [mode]="mode"
-              [emailValue]="email"
-              [primsolId] = "primsolId"
-            ></app-otp-code>
-            <app-login-fields
-              *ngIf="['passwordMode', 'emailMode'].includes(mode | async)"
-              [mode]="mode"
-              [emailValue]="email"
-              [passwordValue]="password"
-            ></app-login-fields>
-          </ng-container>
-        </div> -->
+      <div class="heading_counts d-none d-md-block">
+        <div class="heading_counts-count">
+          <div class="head">
+            <h4>250+</h4>
+            <p>Generics</p>
+          </div>
+        </div>
+        <div class="heading_counts-count">
+          <div class="head">
+            <h4>170+</h4>
+            <p>Brands</p>
+          </div>
+        </div>
+        <div class="heading_counts-count">
+          <div class="head">
+            <h4>58+</h4>
+            <p>Companies</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="heading_hero">
+        <h1 class="heading__header display_text">
+          A complete <span>API</span> suite for all your drug needs
+        </h1>
+        <p class="heading__paragraph">
+          Our Open Source API enables innovators and health-tech businesses to
+          easily embed and distribute genuine drugs using our formulary within
+          their products with the aim to fully digitize healthcare processes
+          within Africa.
+        </p>
+        <div class="heading__buttons">
+          <button class="btn_primary btn_md">Create Account</button>
+          <button class="btn_outlined btn_md">Sign In</button>
+        </div>
+        <img src="assets/landing/img/mac.svg" alt="mac" class="heading__img" />
       </div>
     </div>
   </section>
@@ -325,20 +310,380 @@
       <div class="row" #section1>
         <div class="col-12 col-md-4 col-lg-4">
           <div class="plans_card">
-           <div class="plans_card-head">
-            
-           </div>
+            <div class="plans_card-head">
+              <h3 class="plans_card-head__title">Free</h3>
+              <span class="plans_card-head__border"></span>
+              <div class="plans_card-head__price">
+                <h2>₦0</h2>
+                <p>/ Month</p>
+              </div>
+            </div>
+            <div class="plans_card-list">
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/checkmark.svg"
+                  alt="checkmark"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+            </div>
+            <button class="btn_outlined btn_md w-100">Register</button>
           </div>
         </div>
         <div class="col-12 col-md-4 col-lg-4">
           <div class="plans_card">
-            
+            <div class="plans_card-head">
+              <h3 class="plans_card-head__title">Standard</h3>
+              <span class="plans_card-head__border"></span>
+              <div class="plans_card-head__price">
+                <h2>₦18k</h2>
+                <p>/ Month</p>
+              </div>
+            </div>
+            <div class="plans_card-list">
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/checkmark.svg"
+                  alt="checkmark"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/checkmark.svg"
+                  alt="checkmark"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+            </div>
+            <button class="btn_outlined btn_md w-100">Select Standard</button>
           </div>
         </div>
         <div class="col-12 col-md-4 col-lg-4">
           <div class="plans_card">
-          
+            <div class="plans_card-head">
+              <h3 class="plans_card-head__title">Professional</h3>
+              <span class="plans_card-head__border"></span>
+              <div class="plans_card-head__price">
+                <h2>₦25k</h2>
+                <p>/ Month</p>
+              </div>
+            </div>
+            <div class="plans_card-list">
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/checkmark.svg"
+                  alt="checkmark"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/checkmark.svg"
+                  alt="checkmark"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+              <div class="plans_card-list__item">
+                <img
+                  class="img"
+                  src="assets/landing/svg/minus.svg"
+                  alt="minus"
+                />
+                <p>Aliquet elit posuere purus eros nunc eu.</p>
+              </div>
+            </div>
+            <button class="btn_outlined btn_md w-100">
+              Select Professional
+            </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section answers">
+    <div class="u-container">
+      <h2 class="plans__heading">
+        Find <span>answers</span> to your questions
+      </h2>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="false"
+              aria-controls="collapseOne"
+            >
+              Accordion Item #2
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <strong>This is the second item's accordion body.</strong> It is
+              hidden by default, until the collapse plugin adds the appropriate
+              classes that we use to style each element. These classes control
+              the overall appearance, as well as the showing and hiding via CSS
+              transitions. You can modify any of this with custom CSS or
+              overriding our default variables. It's also worth noting that just
+              about any HTML can go within the <code>.accordion-body</code>,
+              though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Accordion Item #2
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <strong>This is the second item's accordion body.</strong> It is
+              hidden by default, until the collapse plugin adds the appropriate
+              classes that we use to style each element. These classes control
+              the overall appearance, as well as the showing and hiding via CSS
+              transitions. You can modify any of this with custom CSS or
+              overriding our default variables. It's also worth noting that just
+              about any HTML can go within the <code>.accordion-body</code>,
+              though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              Accordion Item #3
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> It is
+              hidden by default, until the collapse plugin adds the appropriate
+              classes that we use to style each element. These classes control
+              the overall appearance, as well as the showing and hiding via CSS
+              transitions. You can modify any of this with custom CSS or
+              overriding our default variables. It's also worth noting that just
+              about any HTML can go within the <code>.accordion-body</code>,
+              though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section questions">
+    <div class="u-container">
+      <div class="flex-container" #section3>
+        <div class="flex-container__full-row">
+          <h2 class="questions__heading">Got <span>more</span> questions</h2>
+          <p class="questions__paragraph">
+            If you would like to reach out to us, drop a message or <br />
+            give us a call, we are always happy to help.
+          </p>
+          <div class="questions_type">
+            <img src="assets/landing/svg/sms.svg" alt="Note" />
+            <a class="questions_type__heading" href="to:support@klinicly.com"
+              >support@klinicly.com</a
+            >
+          </div>
+          <div class="questions_type">
+            <img src="assets/landing/svg/call.svg" alt="Note" />
+            <a class="questions_type__heading" href="tel:+234 (0)803 311 9175"
+              >+234 (0)803 311 9175</a
+            >
+          </div>
+          <div class="questions_type">
+            <img src="assets/landing/svg/location.svg" alt="Note" />
+            <h4 class="questions_type__heading">
+              3rd Floor Oakland Centre No. 48 Aguiyi Ironsi Street, <br />
+              Maitama
+            </h4>
+          </div>
+        </div>
+        <div class="flex-container__full-row">
+          <div class="questions_card">
+            <div class="form_group">
+              <label for="name" class="form-label">Name </label>
+              <input
+                type="text"
+                id="text"
+                class="form-control"
+                placeholder="Enter Your Name"
+                (keyup)="checkForKeyEnter($event)"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form_group">
+              <label for="email" class="form-label">Email </label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Enter email address"
+                (keyup)="checkForKeyEnter($event)"
+                autocomplete="email"
+              />
+              <div class="invalid-feedback">Required</div>
+              <div class="invalid-feedback">Enter a valid email</div>
+            </div>
+
+            <div class="form_group">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                cols="30"
+                placeholder="Enter Message"
+                rows="5"
+                class="form-control"
+              ></textarea>
+              <div class="invalid-feedback">Required</div>
+            </div>
+            <button class="btn_primary btn_md btn_full">Send Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section burden">
+    <div class="u-container">
+      <div class="burden_card">
+        <h2 class="burden__heading">
+          We’ve taken the burden of you. Take advantage of our API for your drug
+          needs today
+        </h2>
+        <div class="d-flex justify-content-center">
+          <button class="btn_started btn_md">Get Started</button>
         </div>
       </div>
     </div>

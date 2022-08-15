@@ -1,4 +1,4 @@
-<header class="header scrolled" #header>
+<header class="header" #header [ngClass]="{ scrolled: scrolled }">
   <nav class="nav u-container">
     <div class="nav__col">
       <!-- MOBILE HEADER -->
@@ -24,9 +24,6 @@
         class="nav__logo"
         [routerLink]="['/']"
       />
-    </div>
-
-    <div class="nav__col">
       <ul class="nav__list non-mobile-header">
         <li class="nav__list-item">
           <a
@@ -38,7 +35,13 @@
         </li>
 
         <li class="nav__list-item">
-          <a [routerLink]="['/features']" routerLinkActive="active">Features</a>
+          <a [routerLink]="['/about']" routerLinkActive="active">About</a>
+        </li>
+
+        <li class="nav__list-item">
+          <a [routerLink]="['/whats-new']" routerLinkActive="active"
+            >Documentation</a
+          >
         </li>
 
         <li class="nav__list-item">
@@ -47,23 +50,17 @@
 
         <li class="nav__list-item">
           <a [routerLink]="['/whats-new']" routerLinkActive="active"
-            >What’s new?</a
-          >
-        </li>
-        <li class="nav__list-item">
-          <a [routerLink]="['/contact-us']" routerLinkActive="active"
-            >Contact us</a
+            >Contact Us</a
           >
         </li>
       </ul>
+    </div>
 
-      <a
-        class="btn btn__cta u-no-transform"
-        href="{{ lpStoreUrl }}"
-        target="_blank"
-      >
-        Subscribe
-      </a>
+    <div class="nav__col">
+      <div class="nav__buttons">
+        <button class="btn_primary btn_md">Sign In</button>
+        <button class="btn_outlined btn_md">Create Account</button>
+      </div>
 
       <!-- <button
         class="btn btn__cta u-no-transform"

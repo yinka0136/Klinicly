@@ -15,3 +15,9 @@
   src: url("NunitoSans-ExtraBold.ttf") format("truetype");
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Lato";
+  src: url("Lato-Regular.ttf") format("truetype");
+  font-style: normal;
+}

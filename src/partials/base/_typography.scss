@@ -28,14 +28,19 @@ body {
 }
 
 .disaplay_text {
-  font-size: 5.4rem;
+  font-size: 5.4rem !important;
 }
 
 h1 {
-  font-size: 4.8rem !important;
+  margin-bottom: 0;
+  font-size: 4.8rem;
+  @include respond(phone) {
+    font-size: 3rem !important;
+  }
 }
 
 h2 {
+  margin-bottom: 0;
   font-size: 4rem !important;
   @include respond(phone) {
     font-size: 3rem !important;
@@ -44,6 +49,7 @@ h2 {
 
 h3 {
   font-size: 2.4rem !important;
+  margin-bottom: 0;
 }
 
 h4 {
@@ -53,6 +59,7 @@ h4 {
 
 h5 {
   font-size: 1.2rem !important;
+  margin-bottom: 0;
 }
 h6 {
   font-size: 1.6rem !important;
@@ -63,6 +70,7 @@ h6 {
 }
 
 p {
+  margin-bottom: 0;
   @include screenSize(XS) {
     font-size: 1.2rem;
   }

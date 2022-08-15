@@ -31,6 +31,12 @@ export class LandingPageComponent
   section3!: ElementRef<HTMLDivElement>;
   @ViewChild('section4', { static: true })
   section4!: ElementRef<HTMLDivElement>;
+  @ViewChild('section4', { static: true })
+  bird1!: ElementRef<HTMLDivElement>;
+  @ViewChild('bird2', { static: true })
+  bird2!: ElementRef<HTMLDivElement>;
+  @ViewChild('bird3', { static: true })
+  bird3!: ElementRef<HTMLDivElement>;
 
   emailstring =
     'mailto:customercare@lawpavilion.com?subject=Schedule%20A%20Demo&body=I%20would%20like%20to%20schedule%20a%20demo%20for%20the%20Primsol%20product.';
@@ -68,6 +74,7 @@ export class LandingPageComponent
     // (window as any).Intercom('update');
     // (this.password.value);
   }
+
   ngAfterViewInit() {
     this.addSubscription(this.runAnimation());
   }
@@ -76,9 +83,10 @@ export class LandingPageComponent
     this.router.navigate(['/dashboard']);
   }
 
-  runAnimation(): void {
+  public runAnimation(): void {
     this.loading = false;
     // this.headerAnimation();
+    this.animateDrugs();
     this.sectionAnimation();
   }
 
@@ -111,7 +119,7 @@ export class LandingPageComponent
   //     .from(this.heroImgConnector.nativeElement, { opacity: 0 }, '-=0.5');
   // }
 
-  sectionAnimation() {
+  public sectionAnimation() {
     let animation = {
       y: 100,
       opacity: 0,
@@ -152,6 +160,72 @@ export class LandingPageComponent
     }
   }
 
+  public animateDrugs(): void {
+    // let Bird01: any = document.getElementById('#bird01'),
+    //   Bird02: any = document.getElementById('#bird01'),
+    //   Bird03: any = document.getElementById('#bird01'),
+    //   wrapperBirds: any = document.getElementById('#wrapperBirds');
+    // Bird01!.data('width', Bird01.width());
+    // Bird02!.data('width', Bird02.width());
+    // Bird03!.data('width', Bird03.width());
+    // let timeFly = this.random(0.4, 0.8),
+    //   birdsFly = document.getElementsByClassName('.birdsFly');
+    // let tl = gsap.timeline({});
+    // tl.to(birdsFly, 0.5, { opacity: -1 });
+    // // .staggerTo(".boxes", 1, {
+    // //    cycle:{
+    // //      opacity:[-1, 1]
+    // //      ease: [Power4.easeInOut]
+    // //    }
+    // //  }, 0.05);
+    // // gsap.staggerTo(birdsFly, timeFly, {
+    // //   cycle:{morphSVG: ["#bird1fly02", "#bird2fly02", "#bird3fly02"]},
+    // //   repeat: -1,
+    // //   yoyo: true,
+    // //   repeatDelay: 0.07,
+    // //   ease: Power3.easeOut
+    // // },0.3);
+    // let width = wrapperBirds!.width();
+    // let height = wrapperBirds!.height();
+    // gsap.set([Bird01, Bird02, Bird03], {
+    //   xPercent: -50,
+    //   yPercent: -50,
+    // });
+    // // x/y values for how far away from the center they can move
+    // let dx = width * 0.4;
+    // let dy = height * 0.5;
+    // // Animate our properties individually
+    // this.tweenProperty(Bird01, 'scale', 0.2, 0.8);
+    // this.tweenProperty(Bird01, 'x', -dx, dx);
+    // this.tweenProperty(Bird01, 'y', -dy, dy);
+    // this.tweenProperty(Bird02, 'scale', 0.5, 1);
+    // this.tweenProperty(Bird02, 'x', -dx, dx);
+    // this.tweenProperty(Bird02, 'y', -dy, dy);
+    // this.tweenProperty(Bird03, 'scale', 0.4, 0.9);
+    // this.tweenProperty(Bird03, 'x', -dx, dx);
+    // this.tweenProperty(Bird03, 'y', -dy, dy);
+  }
+  public tweenProperty(target: any, prop: any, min: any, max: any) {
+    gsap.to(target, this.random(3, 6), {
+      [prop]: this.random(min, max),
+      ease: Sine.easeInOut,
+      onComplete: this.tweenProperty,
+      onCompleteParams: [target, prop, min, max],
+    });
+  }
+  public random(min: any, max: any) {
+    if (max == null) {
+      max = min;
+      min = 0;
+    }
+    return Math.random() * (max - min) + min;
+  }
+  public checkForKeyEnter(event: KeyboardEvent): void {
+    var key = event.key || event.keyCode;
+    if (key == 'Enter' || key == 8) {
+      // this.login();
+    }
+  }
   ngOnDestroy(): void {
     this.clearSubscription();
   }
