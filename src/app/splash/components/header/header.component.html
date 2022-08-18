@@ -56,10 +56,22 @@
       </ul>
     </div>
 
-    <div class="nav__col">
+    <div class="nav__col non-mobile-header">
       <div class="nav__buttons">
-        <button class="btn_primary btn_md">Sign In</button>
-        <button class="btn_outlined btn_md">Create Account</button>
+        <button
+          class="btn_primary btn_md"
+          [routerLink]="['/login']"
+          routerLinkActive="active"
+        >
+          Sign In
+        </button>
+        <button
+          class="btn_outlined btn_md"
+          [routerLink]="['/register']"
+          routerLinkActive="active"
+        >
+          Create Account
+        </button>
       </div>
 
       <!-- <button
@@ -94,10 +106,10 @@
 
       <li class="nav__list-item">
         <a
-          [routerLink]="['/features']"
+          [routerLink]="['/about']"
           routerLinkActive="active"
           (click)="toggleSideNav()"
-          >Features</a
+          >About</a
         >
       </li>
 

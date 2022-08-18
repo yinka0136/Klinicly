@@ -8,18 +8,17 @@ import {
 } from '@angular/core';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
-import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Router } from '@angular/router';
 import { BaseComponent } from '@core/base/base-component';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss'],
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss'],
 })
-export class LandingPageComponent
+export class AboutComponent
   extends BaseComponent
   implements OnInit, AfterViewInit, OnDestroy
 {
@@ -37,13 +36,7 @@ export class LandingPageComponent
   bird2!: ElementRef<HTMLDivElement>;
   @ViewChild('bird3', { static: true })
   bird3!: ElementRef<HTMLDivElement>;
-  @ViewChild('headerText', { static: true })
-  headerText!: ElementRef<HTMLImageElement>;
-  @ViewChild('heroImg', { static: true })
-  heroImg!: ElementRef<HTMLImageElement>;
 
-  @ViewChild('counters', { static: true })
-  counters!: ElementRef<HTMLDivElement>;
   emailstring =
     'mailto:customercare@lawpavilion.com?subject=Schedule%20A%20Demo&body=I%20would%20like%20to%20schedule%20a%20demo%20for%20the%20Primsol%20product.';
 
@@ -91,38 +84,38 @@ export class LandingPageComponent
 
   public runAnimation(): void {
     this.loading = false;
-    this.headerAnimation();
-    this.animateDrugs();
+    // this.headerAnimation();
     this.sectionAnimation();
   }
 
-  headerAnimation() {
-    gsap
-      .timeline()
-      .from(this.headerText.nativeElement, {
-        y: -100,
-        opacity: 0,
-        ease: 'back',
-        duration: 1,
-      })
-      .from(this.heroImg.nativeElement, {
-        y: 100,
-        opacity: 0,
-        ease: 'elastic.out(1, 0.3)',
-        duration: 1,
-      })
-      .from(
-        this.counters.nativeElement.childNodes,
-        {
-          scale: 0,
-          ease: 'elastic.out(1, 0.3)',
-          stagger: {
-            amount: 0.8,
-          },
-        },
-        '<'
-      );
-  }
+  // headerAnimation() {
+  //   gsap
+  //     .timeline()
+  //     .from(this.heroFirstColumn.nativeElement, {
+  //       y: 100,
+  //       opacity: 0,
+  //       ease: 'back',
+  //       duration: 1,
+  //       delay: 0.5,
+  //     })
+  //     .from(this.heroImg.nativeElement, {
+  //       scale: 0,
+  //       ease: 'elastic.out(1, 0.3)',
+  //       duration: 0.5,
+  //     })
+  //     .from(
+  //       this.emojiFeatures.nativeElement.childNodes,
+  //       {
+  //         scale: 0,
+  //         ease: 'elastic.out(1, 0.3)',
+  //         stagger: {
+  //           amount: 0.8,
+  //         },
+  //       },
+  //       '<'
+  //     )
+  //     .from(this.heroImgConnector.nativeElement, { opacity: 0 }, '-=0.5');
+  // }
 
   public sectionAnimation() {
     let animation = {

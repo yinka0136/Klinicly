@@ -57,6 +57,7 @@ main {
 }
 
 section {
+  height: 100%;
   @include respond(tab-port) {
     padding: 0 3rem;
   }
@@ -88,7 +89,6 @@ section {
   animation-duration: 6s;
   background-repeat: no-repeat;
   background-size: cover;
-
   .pill {
     position: absolute;
     &:nth-child(1) {
@@ -154,6 +154,9 @@ section {
     align-items: center;
     justify-content: center;
     padding-top: calc(10rem + $nav_height);
+    @include respond(phone) {
+      padding-top: 2rem;
+    }
   }
 
   &__header {
@@ -200,9 +203,8 @@ section {
     margin-top: auto;
   }
   @include respond(phone) {
-    padding: 11.6rem 0 0 0;
+    padding: 11.6rem 0 0;
     height: auto;
-    padding-bottom: 6rem;
 
     & .img-container {
       overflow-x: hidden;
@@ -224,8 +226,7 @@ section {
     }
   }
   &_card {
-    padding: 32px 32px 72px;
-    // gap: 24px;
+    padding: 3.2rem 3.2rem 7.2rem;
     background: $light-100;
     box-shadow: 0px 1.2rem 2.4rem rgba(37, 99, 235, 0.1);
     border-radius: 1.6rem;
@@ -233,11 +234,19 @@ section {
     flex-direction: column;
     display: flex;
     height: 100%;
+    @include respond(phone) {
+      padding: 2rem;
+    }
     &-img {
       width: 7.2rem;
       height: 7.2rem;
       background: $light-200;
       border-radius: 2.4rem;
+      @include respond(phone) {
+        border-radius: 1.2rem;
+        width: 5rem;
+        height: 5rem;
+      }
       display: flex;
       justify-content: center;
       align-items: center;
@@ -249,6 +258,7 @@ section {
       font-weight: 900;
       font-size: 1.8rem;
       line-height: 2.1rem;
+      text-align: center;
     }
     p {
       text-align: center;
@@ -261,11 +271,11 @@ section {
   }
 
   @include respond(phone) {
-    padding: 6rem 0 0 0;
-    margin: 4rem 0;
+    padding: 2rem 0;
+    margin: 2rem 0;
 
     & .u-container {
-      padding: 0 2.5rem;
+      padding: 0 2rem;
 
       &:not(:last-child) {
         margin-bottom: 8rem;
@@ -318,6 +328,7 @@ section {
   &__img {
     border-radius: 2.4rem;
     @include respond(phone) {
+      border-radius: 1.2rem;
       margin-top: 1.4rem;
     }
   }
@@ -326,52 +337,14 @@ section {
     backdrop-filter: blur(1rem);
     border-radius: 2.4rem;
     padding: 4rem 6rem;
-  }
-
-  &_bottom {
-    h3 {
-      text-align: center;
-      font-family: $nunito_font_extra_bold;
-      span {
-        color: $accent;
-      }
-      margin-bottom: 4rem;
-      @include respond(phone) {
-        margin-bottom: 1.2rem;
-      }
-    }
-    &__pill {
-      display: flex;
-      justify-content: space-evenly;
-      background: $light-100;
-      box-shadow: 0 1.2rem 2.4rem rgba(37, 99, 235, 0.1);
-      border-radius: 12.5rem;
-      padding: 2.5rem 12.3rem;
-      & > :not(:last-child) {
-        padding-right: 10.5rem;
-        border-right: 0.1rem solid rgba($dark, 0.2);
-      }
-      @include respond(phone) {
-        border-radius: 0.8rem;
-        padding: 2rem;
-        & > :not(:last-child) {
-          padding-right: 0;
-          border-right: 0.1rem solid rgba($dark, 0.2);
-        }
-      }
-      &-item {
-        &__heading {
-          color: $accent;
-        }
-        &__paragraph {
-          color: $body;
-        }
-      }
+    @include respond(phone) {
+      padding: 2rem;
+      border-radius: 1.2rem;
     }
   }
 
   @include respond(phone) {
-    padding: 6rem 0;
+    padding: 2rem 0;
 
     & .flex-container {
       flex-direction: column;
@@ -381,7 +354,7 @@ section {
     }
 
     & .u-container {
-      padding: 0 2.5rem;
+      padding: 0 2rem;
 
       &:not(:last-child) {
         margin-bottom: 8rem;
@@ -415,14 +388,23 @@ section {
   &__img {
     border-radius: 2.4rem;
     width: 100%;
+    @include respond(phone) {
+      border-radius: 1.2rem;
+    }
   }
   &_timeline {
     & > :not(:last-child) {
       padding-bottom: 3.2rem;
+      @include respond(phone) {
+        padding-bottom: 2rem;
+      }
     }
     &-item {
       position: relative;
       padding-left: 3.4rem;
+      @include respond(phone) {
+        padding-left: 2rem;
+      }
       border-left: 0.1rem dotted rgba($dark, 0.2);
       &__paragraph {
         font-weight: 400;
@@ -482,8 +464,8 @@ section {
   }
 
   @include respond(phone) {
-    padding: 6rem 0 0 0;
-    margin: 4rem 0;
+    padding: 2rem 0;
+    margin: 2rem 0;
     & .flex-container {
       flex-direction: column;
       & > :not(:last-child) {
@@ -492,7 +474,7 @@ section {
     }
 
     & .u-container {
-      padding: 0 2.5rem;
+      padding: 0 2rem;
 
       &:not(:last-child) {
         margin-bottom: 8rem;
@@ -537,11 +519,11 @@ section {
   }
 
   @include respond(phone) {
-    padding: 6rem 0 0 0;
-    margin: 4rem 0;
+    padding: 2rem 0;
+    margin: 2rem 0;
 
     & .u-container {
-      padding: 4rem 2.5rem;
+      padding: 1rem;
     }
   }
 }
@@ -550,7 +532,6 @@ section {
   margin-bottom: 19.3rem;
   position: relative;
   background: $dark;
-  height: 85rem;
   &__img {
     position: absolute;
     right: 0;
@@ -558,7 +539,7 @@ section {
     border-bottom-left-radius: 1.2rem;
     @include respond(phone) {
       width: 80%;
-      bottom: -16rem;
+      bottom: -13rem;
     }
   }
   &__heading {
@@ -605,6 +586,11 @@ section {
           margin-right: 3.2rem;
           width: 3.2rem;
           height: 3.2rem;
+          @include respond(phone) {
+            margin-right: 1rem;
+            width: 2.4rem;
+            height: 2.4rem;
+          }
         }
       }
     }
@@ -621,7 +607,7 @@ section {
     }
 
     & .u-container {
-      padding: 0 2.5rem;
+      padding: 0 2rem;
 
       &:not(:last-child) {
         margin-bottom: 8rem;
@@ -646,6 +632,9 @@ section {
     span {
       color: $accent;
     }
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
   }
   &_card {
     cursor: crosshair;
@@ -658,6 +647,10 @@ section {
     flex-direction: column;
     display: flex;
     height: 100%;
+    transition: all 0.6s ease-in-out;
+    @include respond(phone) {
+      padding: 0.8rem;
+    }
 
     &-head {
       width: 100%;
@@ -668,11 +661,17 @@ section {
       justify-content: center;
       padding: 1.6rem;
       transition: all 0.6s ease-in-out;
+      @include respond(phone) {
+        padding: 1rem;
+      }
 
       &__title {
         font-family: $nunito_font_extra_bold;
         margin-bottom: 1.6rem;
         text-align: center;
+        @include respond(phone) {
+          margin-bottom: 0rem;
+        }
       }
       &__border {
         margin: auto;
@@ -680,6 +679,9 @@ section {
         border: 0.4rem solid $accent;
         width: 3.2rem;
         border-radius: 1rem;
+        @include respond(phone) {
+          margin-bottom: 0rem;
+        }
       }
       &__price {
         margin: auto;
@@ -702,7 +704,9 @@ section {
       margin-bottom: 5.4rem;
       @include respond(phone) {
         margin-bottom: 1.6rem;
+        padding-top: 1rem;
       }
+
       padding-top: 3.2rem;
       border-top: 0.1rem solid rgba($dark, 0.1);
       &__item {
@@ -762,11 +766,11 @@ section {
   }
 
   @include respond(phone) {
-    padding: 6rem 0 0 0;
-    margin: 4rem 0;
+    padding: 2rem 0;
+    margin: 2rem 0;
 
     & .u-container {
-      padding: 0 2.5rem;
+      padding: 0 2rem;
 
       &:not(:last-child) {
         margin-bottom: 8rem;
@@ -779,6 +783,9 @@ section {
       & :not(:last-child) {
         margin-bottom: 2rem;
       }
+    }
+    .row > {
+      margin-bottom: 2rem;
     }
 
     & .u-container .flex-container:first-child {
@@ -807,11 +814,11 @@ section {
     max-width: 93.4rem;
   }
   @include respond(phone) {
-    padding: 6rem 0 0 0;
-    margin: 4rem 0;
+    padding: 2rem 0;
+    margin: 2rem 0;
 
     & .u-container {
-      padding: 0 2.5rem;
+      padding: 0 2rem;
 
       &:not(:last-child) {
         margin-bottom: 8rem;
@@ -862,6 +869,9 @@ section {
   &_type {
     display: flex;
     margin-bottom: 3.2rem;
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
     img {
       margin-right: 1.8rem;
     }
@@ -875,17 +885,20 @@ section {
 
   &_card {
     width: 100%;
-
     background: $light-100;
     border: 0.1rem solid rgba($dark, 0.1);
     box-shadow: 0px 12px 24px rgba(37, 99, 235, 0.1);
     border-radius: 1.6rem;
     padding: 3.2rem;
+    @include respond(phone) {
+      padding: 1.2rem;
+      border-radius: 0.8rem;
+    }
   }
 
   @include respond(phone) {
-    padding: 6rem 0;
-    margin: 4rem 0;
+    padding: 2rem 0;
+    margin: 2rem 0;
     & .flex-container {
       flex-direction: column;
       & > :not(:last-child) {
@@ -894,7 +907,7 @@ section {
     }
 
     & .u-container {
-      padding: 0 2.5rem;
+      padding: 0 2rem;
 
       &:not(:last-child) {
         margin-bottom: 8rem;
@@ -912,51 +925,9 @@ section {
   height: 100%;
   padding: 12rem 0;
 
-  &_card {
-    background: $accent;
-    border-radius: 4.8rem;
-    padding: 7.8rem 10.5rem 6.2rem;
-    @include respond(phone) {
-      margin-bottom: 2rem;
-      padding: 2rem;
-    }
-  }
-  &__heading {
-    text-align: center;
-    margin-bottom: 4.6rem;
-    font-family: $nunito_font_extra_bold;
-    font-weight: 900;
-    line-height: 120%;
-    color: $light-100;
-
-    @include respond(phone) {
-      margin-bottom: 1.2rem;
-    }
-  }
-  .btn_started {
-    background: $dark;
-    box-shadow: 0px 4px 8px -1px rgba(35, 65, 179, 0.25);
-    border-radius: 0.8rem;
-    font-weight: 800;
-    font-size: 1.8rem;
-    line-height: 150%;
-    color: $light-100;
-    transition: 0.3s all ease-in-out;
-    border: none;
-    &:hover,
-    &:focus {
-      border-radius: 4rem;
-      background: $light-100;
-      color: $accent;
-    }
-    &:disabled {
-      background: rgba($header, 0.15);
-    }
-  }
-
   @include respond(phone) {
-    padding: 6rem 0;
-    margin: 4rem 0;
+    padding: 2rem 0;
+    margin: 2rem 0;
     & .flex-container {
       flex-direction: column;
       & > :not(:last-child) {
@@ -965,7 +936,7 @@ section {
     }
 
     & .u-container {
-      padding: 0 2.5rem;
+      padding: 0 2rem;
 
       &:not(:last-child) {
         margin-bottom: 8rem;
@@ -1071,32 +1042,6 @@ input::-webkit-input-placeholder {
   color: #d9d9d9;
 }
 
-.flex-container {
-  display: flex;
-  align-items: center;
-  &__full-row {
-    flex: 1;
-
-    &:not(:last-child) {
-      margin-right: 4.5rem;
-      @include respond(phone) {
-        margin-right: 0;
-      }
-    }
-  }
-  &__row--65 {
-    flex-basis: 65%;
-  }
-  &__row--35 {
-    flex-basis: 35%;
-  }
-  &__row--60 {
-    flex-basis: 60%;
-  }
-  &__row--30 {
-    flex-basis: 40%;
-  }
-}
 .u-img-container {
   width: 100%;
   height: 100%;

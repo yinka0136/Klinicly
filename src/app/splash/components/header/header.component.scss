@@ -38,7 +38,7 @@ aside {
     display: block;
     position: absolute;
     top: 6rem;
-    background: #ffffff;
+    background-image: url(../../../../assets/landing/img/gradient1.svg);
     width: 100%;
     left: 0;
     height: calc(100vh - 6rem);
@@ -61,15 +61,23 @@ aside {
       width: 100%;
 
       & a {
+        font-family: $nunito_font_bold;
         display: block;
-        color: #0d243c65;
+        color: $header;
         transition: all 0.2s ease-in;
-        font-size: 1.8rem;
-        font-weight: 500;
+        font-weight: 700;
+        font-size: 1.4rem;
         padding: 0.8rem 2.377rem;
-
+        text-decoration: none;
+        &:hover {
+          color: $dark;
+          text-decoration: none;
+          font-style: italic;
+        }
         &.active {
-          color: #0d243c;
+          font-style: italic;
+          color: $dark;
+          border-color: $accent;
         }
 
         &:hover,

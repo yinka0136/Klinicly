@@ -1,0 +1,63 @@
+<div class="wrapper">
+  <h3 class="wrapper-heading">Create Account</h3>
+  <p class="wrapper-paragraph">
+    Let’s get you started on your Klinicly journey.
+  </p>
+
+  <form>
+    <div class="form_group">
+      <label for="name" class="form-label">Name </label>
+      <input
+        type="text"
+        id="text"
+        class="form-control"
+        placeholder="Enter Your Full Name"
+        (keyup)="checkForKeyEnter($event)"
+        autocomplete="name"
+      />
+    </div>
+
+    <div class="form_group">
+      <label for="email" class="form-label">Email </label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="Enter Your Email Address"
+        (keyup)="checkForKeyEnter($event)"
+        autocomplete="email"
+      />
+      <div class="invalid-feedback">Required</div>
+      <div class="invalid-feedback">Enter a valid email</div>
+    </div>
+    <div class="form_group">
+      <label for="password" class="form-label">password </label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        placeholder="Create a secure password"
+        (keyup)="checkForKeyEnter($event)"
+        autocomplete="new-password"
+      />
+      <div class="invalid-feedback">Required</div>
+    </div>
+    <div class="form_group">
+      <button
+        class="btn_primary btn_md btn_full"
+        [routerLink]="['/verify']"
+        routerLinkActive="active"
+      >
+        Create Account
+      </button>
+    </div>
+    <app-socials></app-socials>
+    <p
+      class="wrapper-already"
+      [routerLink]="['/login']"
+      routerLinkActive="active"
+    >
+      Already have an accont? <span>Sign In</span>
+    </p>
+  </form>
+</div>

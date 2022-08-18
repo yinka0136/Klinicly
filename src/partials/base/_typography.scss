@@ -43,7 +43,7 @@ h2 {
   margin-bottom: 0;
   font-size: 4rem !important;
   @include respond(phone) {
-    font-size: 3rem !important;
+    font-size: 2.4rem !important;
   }
 }
 
@@ -55,6 +55,9 @@ h3 {
 h4 {
   font-size: 2rem;
   margin-bottom: 0;
+  @include respond(phone) {
+    font-size: 1.6rem !important;
+  }
 }
 
 h5 {
@@ -72,10 +75,10 @@ h6 {
 p {
   margin-bottom: 0;
   @include screenSize(XS) {
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
   }
   @include screenSize(S) {
-    font-size: 1.4rem;
+    font-size: 1.4rem !important;
   }
   @include screenSize(M) {
     font-size: 1.6rem;
@@ -85,5 +88,11 @@ p {
   }
   @include screenSize(XL) {
     font-size: 2rem;
+  }
+}
+
+a {
+  @include respond(phone) {
+    font-size: 1.4rem !important;
   }
 }

@@ -1,15 +1,15 @@
-<div id="canvas">
-  <div class="e"></div>
-</div>
-
 <main class="main">
   <section class="section heading">
     <img src="assets/landing/svg/Pill1.svg" alt="pill" class="pill" />
     <img src="assets/landing/svg/Pill2.svg" alt="pill" class="pill" />
     <img src="assets/landing/svg/Pill3.svg" alt="pill" class="pill" />
     <img src="assets/landing/svg/Pill4.svg" alt="pill" class="pill" />
+    <img src="assets/landing/svg/Pill1.svg" alt="pill" class="pill" />
+    <img src="assets/landing/svg/Pill2.svg" alt="pill" class="pill" />
+    <img src="assets/landing/svg/Pill3.svg" alt="pill" class="pill" />
+    <img src="assets/landing/svg/Pill4.svg" alt="pill" class="pill" />
     <div class="u-container">
-      <div class="heading_counts d-none d-md-block">
+      <div class="heading_counts d-none d-md-block" #counters>
         <div class="heading_counts-count">
           <div class="head">
             <h4>250+</h4>
@@ -31,20 +31,27 @@
       </div>
 
       <div class="heading_hero">
-        <h1 class="heading__header display_text">
-          A complete <span>API</span> suite for all your drug needs
-        </h1>
-        <p class="heading__paragraph">
-          Our Open Source API enables innovators and health-tech businesses to
-          easily embed and distribute genuine drugs using our formulary within
-          their products with the aim to fully digitize healthcare processes
-          within Africa.
-        </p>
+        <div #headerText>
+          <h1 class="heading__header display_text">
+            A complete <span>API</span> suite for all your drug needs
+          </h1>
+          <p class="heading__paragraph">
+            Our Open Source API enables innovators and health-tech businesses to
+            easily embed and distribute genuine drugs using our formulary within
+            their products with the aim to fully digitize healthcare processes
+            within Africa.
+          </p>
+        </div>
         <div class="heading__buttons">
           <button class="btn_primary btn_md">Create Account</button>
           <button class="btn_outlined btn_md">Sign In</button>
         </div>
-        <img src="assets/landing/img/mac.svg" alt="mac" class="heading__img" />
+        <img
+          src="assets/landing/img/mac.svg"
+          alt="mac"
+          class="heading__img"
+          #heroImg
+        />
       </div>
     </div>
   </section>
@@ -124,26 +131,7 @@
       </div>
     </div>
     <div class="u-container">
-      <div class="about_bottom">
-        <h3>
-          We are progressively making <span>impact</span> and growing
-          consistently.
-        </h3>
-        <div class="about_bottom__pill">
-          <div class="about_bottom__pill-item">
-            <h2 class="about_bottom__pill-item__heading">900+</h2>
-            <p class="about_bottom__pill-item__paragraph">API Calls</p>
-          </div>
-          <div class="about_bottom__pill-item">
-            <h2 class="about_bottom__pill-item__heading">40+</h2>
-            <p class="about_bottom__pill-item__paragraph">Partners</p>
-          </div>
-          <div class="about_bottom__pill-item">
-            <h2 class="about_bottom__pill-item__heading">300+</h2>
-            <p class="about_bottom__pill-item__paragraph">Drugs</p>
-          </div>
-        </div>
-      </div>
+      <app-impact></app-impact>
     </div>
   </section>
 
@@ -624,10 +612,10 @@
           </div>
           <div class="questions_type">
             <img src="assets/landing/svg/location.svg" alt="Note" />
-            <h4 class="questions_type__heading">
+            <p class="questions_type__heading">
               3rd Floor Oakland Centre No. 48 Aguiyi Ironsi Street, <br />
               Maitama
-            </h4>
+            </p>
           </div>
         </div>
         <div class="flex-container__full-row">
@@ -677,15 +665,7 @@
 
   <section class="section burden">
     <div class="u-container">
-      <div class="burden_card">
-        <h2 class="burden__heading">
-          We’ve taken the burden of you. Take advantage of our API for your drug
-          needs today
-        </h2>
-        <div class="d-flex justify-content-center">
-          <button class="btn_started btn_md">Get Started</button>
-        </div>
-      </div>
+      <app-burden> </app-burden>
     </div>
   </section>
 </main>

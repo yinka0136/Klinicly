@@ -1,6 +1,9 @@
 .form_group {
   font-family: $lato;
-  margin-bottom: 3.2rem;
+  margin-bottom: 1.6rem;
+  @include respond(phone) {
+    margin-bottom: 1.2rem;
+  }
   label {
     margin-bottom: 0.2rem;
     font-weight: 500;
@@ -16,17 +19,20 @@
     border-radius: 0.8rem;
     height: 4.8rem;
     font-size: 1.4rem !important;
-    // color: $aqua;
     padding: 1.2rem 1.6rem;
     background: $light-200;
+    @include respond(phone) {
+      height: 3.8rem;
+      padding: 1.2rem;
+    }
     &::placeholder {
       color: rgba($body, 0.6);
     }
 
     &:focus {
       background-color: $light-100;
-      color: $aqua;
-      border: 0.1rem solid rgba($aqua, 0.4);
+      color: $accent;
+      border: 0.1rem solid rgba($accent, 0.4);
       box-shadow: none;
     }
     &:active,

@@ -1,0 +1,46 @@
+<div class="wrapper">
+  <h3 class="wrapper-heading">Welcome back</h3>
+  <p class="wrapper-paragraph">Let’s pick up where we left off</p>
+
+  <form>
+    <div class="form_group">
+      <label for="email" class="form-label">Email </label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="Enter Your Email Address"
+        (keyup)="checkForKeyEnter($event)"
+        autocomplete="email"
+      />
+      <div class="invalid-feedback">Required</div>
+      <div class="invalid-feedback">Enter a valid email</div>
+    </div>
+    <div class="form_group">
+      <label for="password" class="form-label">password </label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        placeholder="Enter Your Email Address"
+        (keyup)="checkForKeyEnter($event)"
+        autocomplete="current-password"
+      />
+      <div class="invalid-feedback">Required</div>
+      <div class="forgot" [routerLink]="['/forgot']" routerLinkActive="active">
+        Forgot Password?
+      </div>
+    </div>
+    <div class="form_group">
+      <button class="btn_primary btn_md btn_full">Sign In</button>
+    </div>
+    <app-socials></app-socials>
+    <p
+      class="wrapper-already"
+      [routerLink]="['/register']"
+      routerLinkActive="active"
+    >
+      Don't have an accont? <span>Sign Up</span>
+    </p>
+  </form>
+</div>
