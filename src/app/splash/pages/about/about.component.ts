@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Injector,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -10,7 +11,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Router } from '@angular/router';
-import { BaseComponent } from '@core/base/base-component';
+import { Base } from '@core/base/base-component';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
@@ -19,7 +20,7 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent
-  extends BaseComponent
+  extends Base
   implements OnInit, AfterViewInit, OnDestroy
 {
   @ViewChild('section1', { static: true })
@@ -49,8 +50,12 @@ export class AboutComponent
   public screen!: string;
   public loading = true;
 
-  constructor(private router: Router, public mediaObserver: MediaObserver) {
-    super();
+  constructor(
+    private router: Router,
+    public mediaObserver: MediaObserver,
+    injector: Injector
+  ) {
+    super(injector);
     gsap.registerPlugin(ScrollTrigger);
     this.addSubscription(
       this.mediaObserver

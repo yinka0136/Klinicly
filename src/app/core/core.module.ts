@@ -1,8 +1,10 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SnackbarComponent } from './base/snackbar/snackbar.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [SnackbarComponent],
+  entryComponents: [SnackbarComponent],
   imports: [CommonModule],
 })
 export class CoreModule {

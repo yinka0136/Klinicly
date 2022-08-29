@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Injector,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -10,7 +11,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { Router } from '@angular/router';
-import { BaseComponent } from '@core/base/base-component';
+import { Base } from '@core/base/base-component';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
@@ -20,7 +21,7 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent
-  extends BaseComponent
+  extends Base
   implements OnInit, AfterViewInit, OnDestroy
 {
   @ViewChild('section1', { static: true })
@@ -56,8 +57,12 @@ export class LandingPageComponent
   public screen!: string;
   public loading = true;
 
-  constructor(private router: Router, public mediaObserver: MediaObserver) {
-    super();
+  constructor(
+    private router: Router,
+    public mediaObserver: MediaObserver,
+    injector: Injector
+  ) {
+    super(injector);
     gsap.registerPlugin(ScrollTrigger);
     this.addSubscription(
       this.mediaObserver
@@ -92,7 +97,7 @@ export class LandingPageComponent
   public runAnimation(): void {
     this.loading = false;
     this.headerAnimation();
-    this.animateDrugs();
+    // this.animateDrugs();
     this.sectionAnimation();
   }
 

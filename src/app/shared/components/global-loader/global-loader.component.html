@@ -1,0 +1,9 @@
+<div class="spinner" [class.inline]="inline" *ngIf="isRegular()">
+  <mat-spinner [diameter]="diameter"></mat-spinner>
+</div>
+
+<div class="backDrop" *ngIf="!isRegular()">
+  <div class="spinner" [class.inline]="inline">
+    <mat-spinner [diameter]="diameter"></mat-spinner>
+  </div>
+</div>

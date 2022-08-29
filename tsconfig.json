@@ -20,7 +20,7 @@
     "paths": {
       "@env/*": ["environments/*"],
       "@core/*": ["app/core/*"],
-      // "@auth/*": ["app/authentication/*"],
+      "@auth/*": ["app/splash/*"],
       "@shared/*": ["app/shared/*"]
       // "@GlobalService/*": ["app/services/*"]
     }

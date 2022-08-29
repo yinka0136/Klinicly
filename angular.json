@@ -32,6 +32,9 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
+              {
+                "input": "src/mat-theme.scss"
+              },
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/animate.css",
               "src/styles.scss"

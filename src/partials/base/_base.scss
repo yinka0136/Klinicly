@@ -64,3 +64,13 @@ body {
     transform: (scale(1.03));
   }
 }
+
+.position-relative {
+  position: relative;
+}
+.svg_eye {
+  cursor: pointer;
+  position: absolute;
+  right: 5%;
+  top: 38%;
+}
