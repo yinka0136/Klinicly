@@ -43,8 +43,28 @@
           </p>
         </div>
         <div class="heading__buttons">
-          <button class="btn_primary btn_md">Create Account</button>
-          <button class="btn_outlined btn_md">Sign In</button>
+          <button
+            class="btn_outlined btn_md"
+            [routerLink]="['/register']"
+            routerLinkActive="active"
+          >
+            Create Account
+          </button>
+          <button
+            *ngIf="guest"
+            class="btn_primary btn_md"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+          >
+            Sign In
+          </button>
+          <button
+            class="btn_primary btn_md"
+            [routerLink]="['/dashboard']"
+            *ngIf="!guest"
+          >
+            Dashboard
+          </button>
         </div>
         <img
           src="assets/landing/img/mac.svg"
@@ -295,194 +315,7 @@
       <h2 class="plans__heading">
         We’ve got the right <span>plan</span> for you
       </h2>
-      <div class="row" #section1>
-        <div class="col-12 col-md-4 col-lg-4">
-          <div class="plans_card">
-            <div class="plans_card-head">
-              <h3 class="plans_card-head__title">Free</h3>
-              <span class="plans_card-head__border"></span>
-              <div class="plans_card-head__price">
-                <h2>₦0</h2>
-                <p>/ Month</p>
-              </div>
-            </div>
-            <div class="plans_card-list">
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/checkmark.svg"
-                  alt="checkmark"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-            </div>
-            <button class="btn_outlined btn_md w-100">Register</button>
-          </div>
-        </div>
-        <div class="col-12 col-md-4 col-lg-4">
-          <div class="plans_card">
-            <div class="plans_card-head">
-              <h3 class="plans_card-head__title">Standard</h3>
-              <span class="plans_card-head__border"></span>
-              <div class="plans_card-head__price">
-                <h2>₦18k</h2>
-                <p>/ Month</p>
-              </div>
-            </div>
-            <div class="plans_card-list">
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/checkmark.svg"
-                  alt="checkmark"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/checkmark.svg"
-                  alt="checkmark"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-            </div>
-            <button class="btn_outlined btn_md w-100">Select Standard</button>
-          </div>
-        </div>
-        <div class="col-12 col-md-4 col-lg-4">
-          <div class="plans_card">
-            <div class="plans_card-head">
-              <h3 class="plans_card-head__title">Professional</h3>
-              <span class="plans_card-head__border"></span>
-              <div class="plans_card-head__price">
-                <h2>₦25k</h2>
-                <p>/ Month</p>
-              </div>
-            </div>
-            <div class="plans_card-list">
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/checkmark.svg"
-                  alt="checkmark"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/checkmark.svg"
-                  alt="checkmark"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-              <div class="plans_card-list__item">
-                <img
-                  class="img"
-                  src="assets/landing/svg/minus.svg"
-                  alt="minus"
-                />
-                <p>Aliquet elit posuere purus eros nunc eu.</p>
-              </div>
-            </div>
-            <button class="btn_outlined btn_md w-100">
-              Select Professional
-            </button>
-          </div>
-        </div>
-      </div>
+      <app-plans></app-plans>
     </div>
   </section>
 

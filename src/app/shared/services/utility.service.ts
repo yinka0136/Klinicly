@@ -11,4 +11,16 @@ export class UtilityService {
   public covertDateToIsoString(date: any): Date {
     return new Date(date);
   }
+
+  public getInitial(user: any) {
+    if (user) {
+      let firstName = user.split(' ')[0];
+      let lastName = user.split(' ')[1];
+      return (
+        firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase()
+      );
+    }
+
+    return;
+  }
 }

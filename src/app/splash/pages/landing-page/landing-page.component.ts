@@ -1,3 +1,4 @@
+import { CurrentUserService } from '@core/services/current-user.service';
 import {
   AfterViewInit,
   Component,
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 import { Base } from '@core/base/base-component';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-landing-page',
@@ -60,9 +62,11 @@ export class LandingPageComponent
   constructor(
     private router: Router,
     public mediaObserver: MediaObserver,
-    injector: Injector
+    private _current: CurrentUserService,
+    injector: Injector,
+    _clipboard: Clipboard
   ) {
-    super(injector);
+    super(injector, _clipboard);
     gsap.registerPlugin(ScrollTrigger);
     this.addSubscription(
       this.mediaObserver
@@ -75,7 +79,7 @@ export class LandingPageComponent
           this.screen = change.mqAlias;
         })
     );
-    // this.guest = !currentUserService.getCurrentUser();
+    this.guest = !_current.getCurrentUser();
     if (this.guest) {
       // this.currentUserService.clearStorage();
     }
@@ -96,9 +100,9 @@ export class LandingPageComponent
 
   public runAnimation(): void {
     this.loading = false;
-    this.headerAnimation();
-    // this.animateDrugs();
-    this.sectionAnimation();
+      // this.headerAnimation();
+      // this.animateDrugs();
+      // this.sectionAnimation();
   }
 
   headerAnimation() {

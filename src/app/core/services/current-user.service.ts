@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-// import { UserDetailsResponseDTO } from '@auth/models/auth.model';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { Helpers } from '@core/models/helpers.model';
 import { ICurrentUser } from '@core/models/user.model';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { BehaviorSubject } from 'rxjs';
@@ -15,28 +12,24 @@ export class CurrentUserService {
 
   constructor(
     private _localStorageAS: LocalStorageService,
-    private _jwt: JwtHelperService,
     private router: Router
   ) {}
 
   public logOut(): void {
     localStorage.clear();
     this._localStorageAS.clear();
-    this.router.navigate(['authentication/login']);
+    this.router.navigate(['login']);
   }
 
   public isLoggedIn(): boolean {
-    const docstream_token = JSON.parse(
-      localStorage.getItem('docstream_token') || 'null'
+    const klinicly_user = JSON.parse(
+      localStorage.getItem('klinicly_user') || 'null'
     );
 
     if (
-      docstream_token !== null &&
-      docstream_token !== undefined &&
-      !this._jwt.isTokenExpired(docstream_token)
-      // &&
-      // currentUser !== undefined &&
-      // currentUser !== null
+      klinicly_user !== null &&
+      klinicly_user !== undefined 
+     
     ) {
       return true;
     }
@@ -61,23 +54,23 @@ export class CurrentUserService {
     // );
   }
 
-  public storeToken(token: string): void {
-    localStorage.setItem(Helpers.TOKEN_TAG, JSON.stringify(token));
-  }
-
   public storeUserDetails(userDetails: any) {
     this._localStorageAS.remove('klinicly_user');
     this._localStorageAS.set('klinicly_user', userDetails);
     this.setUser();
   }
 
+  public updateToken(token: string): void {
+    const { jwToken, ...user } = this.getCurrentUser();
+    const newUserDetails = { jwToken: token, ...user };
+    this.storeUserDetails(newUserDetails);
+  }
   public setUser() {
     this.currentUser.next(this.getUser());
   }
 
   public getUser() {
     const { jwToken, ...user } = this.getCurrentUser();
-    console.log(user, jwToken);
     return user;
   }
 
@@ -94,7 +87,7 @@ export class CurrentUserService {
   //   return null;
   // }
 
-  public getAuthToken(): string| void {
+  public getAuthToken(): string | void {
     const user = this.getCurrentUser();
     if (user) {
       return user.jwToken;
@@ -105,9 +98,8 @@ export class CurrentUserService {
 
   logout(authExpired = false) {
     this.clearStorage();
-    this.router.navigate(["/"]);
+    this.router.navigate(['/']);
   }
-
 
   public getCurrentUserObservable() {
     return this.currentUser.asObservable();

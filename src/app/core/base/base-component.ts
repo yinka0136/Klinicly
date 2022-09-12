@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription, TeardownLogic, BehaviorSubject } from 'rxjs';
 import { SnackbarComponent } from './snackbar/snackbar.component';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class Base {
   public isEmptyData = false;
   private snackBar: MatSnackBar;
   private location: Location;
-  constructor(private injector: Injector) {
+  constructor(private injector: Injector, private _clipboard: Clipboard) {
     this.snackBar = this.injector.get<MatSnackBar>(MatSnackBar);
     this.location = this.injector.get<Location>(Location);
     // this.connectionState$.subscribe((state: StatusViewModel) => {
@@ -28,8 +29,13 @@ export class Base {
     this.subscription.add(logic);
   }
 
-  clearSubscription(): void {
+  public clearSubscription(): void {
     this.subscription.unsubscribe();
+  }
+
+  public copyToClipboard(toCopy: string): void {
+    this._clipboard.copy(toCopy);
+    this.openSnackBar('Copied to clipboard');
   }
   public goBack(): void {
     this.location.back();

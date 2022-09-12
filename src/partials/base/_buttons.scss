@@ -8,7 +8,8 @@
   line-height: 150%;
   color: $light-100;
   transition: 0.3s all ease-in-out;
-  border: none;
+  border: none !important;
+  white-space: nowrap;
   &:hover,
   &:focus {
     border-radius: 4rem;
@@ -25,6 +26,8 @@
 
 // Button Outlined
 .btn_outlined {
+  white-space: nowrap;
+
   font-family: $nunito_font_bold;
   background: transparent;
   border: 0.1rem solid $accent;
@@ -51,6 +54,8 @@
 
 // Button Subtle
 .btn_subtle {
+  white-space: nowrap;
+
   font-family: $nunito_font_bold;
   background: transparent;
   border: 0.1 solid rgba($dark, 0.2);
@@ -75,6 +80,8 @@
 
 // Button Text
 .btn_text {
+  white-space: nowrap;
+
   font-family: $nunito_font_bold;
   background: transparent;
   border: none;

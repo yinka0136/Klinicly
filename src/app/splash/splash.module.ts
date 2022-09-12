@@ -17,6 +17,10 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { SocialsComponent } from './components/socials/socials.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { EmailSentComponent } from './pages/email-sent/email-sent.component';
+import { PayComponent } from './pages/pay/pay.component';
+import { VerifyPaymentComponent } from './pages/verify-payment/verify-payment.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,15 @@ import { SocialsComponent } from './components/socials/socials.component';
     ResetPasswordComponent,
     AuthLayoutComponent,
     SocialsComponent,
+    EmailSentComponent,
+    PayComponent,
+    VerifyPaymentComponent,
   ],
-  imports: [CommonModule, SplashRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    SplashRoutingModule,
+    SharedModule,
+    MatAutocompleteModule,
+  ],
 })
 export class SplashModule {}

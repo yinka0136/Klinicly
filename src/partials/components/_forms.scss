@@ -17,10 +17,11 @@
   textarea {
     width: 100%;
     border-radius: 0.8rem;
+    border: none;
     height: 4.8rem;
     font-size: 1.4rem !important;
     padding: 1.2rem 1.6rem;
-    background: $light-200;
+    background: $light-200 !important;
     @include respond(phone) {
       height: 3.8rem;
       padding: 1.2rem;

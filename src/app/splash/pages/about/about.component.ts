@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { Base } from '@core/base/base-component';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   templateUrl: './about.component.html',
@@ -53,9 +54,10 @@ export class AboutComponent
   constructor(
     private router: Router,
     public mediaObserver: MediaObserver,
-    injector: Injector
+    injector: Injector,
+    _clipboard: Clipboard
   ) {
-    super(injector);
+    super(injector, _clipboard);
     gsap.registerPlugin(ScrollTrigger);
     this.addSubscription(
       this.mediaObserver

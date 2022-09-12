@@ -124,6 +124,29 @@ $XL: 1200px; // desktops..
     }
   }
 }
+@mixin minSize($canvas) {
+  @if $canvas==S {
+    /* Mobile devices */
+    @media only screen and (min-width: $S) {
+      @content;
+    }
+  } @else if $canvas==M {
+    /* Tablets and phablets */
+    @media only screen and (min-width: $M) {
+      @content;
+    }
+  } @else if $canvas==L {
+    /* Landscape tablets and desktop or laptops */
+    @media only screen and (min-width: $L) {
+      @content;
+    }
+  } @else if $canvas==XL {
+    /* Landscape tablets and desktop or laptops */
+    @media only screen and (min-width: $XL) {
+      @content;
+    }
+  }
+}
 
 @mixin flexbox() {
   display: -webkit-box;

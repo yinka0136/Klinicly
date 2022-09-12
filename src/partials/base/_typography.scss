@@ -3,7 +3,7 @@
 body {
   font-family: $nunito_font !important;
   // color: $blue-700;
-  // background: $purple-100;
+  // background: $light-200;
 }
 
 .mat-typography p {
@@ -12,10 +12,12 @@ body {
 }
 
 .mat-typography h3 {
+  font-family: $nunito_font_bold;
   margin: 0;
 }
 
 .mat-typography h4 {
+  font-family: $nunito_font_bold;
   margin: 0;
 }
 
@@ -25,10 +27,18 @@ body {
 
 .mat-typography h2 {
   margin: 0;
+  font-family: $nunito_font_bold;
 }
 
 .disaplay_text {
   font-size: 5.4rem !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $nunito_font_bold;
 }
 
 h1 {

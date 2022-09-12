@@ -3,7 +3,6 @@
   <p class="wrapper-paragraph">
     Let’s get you started on your Klinicly journey.
   </p>
-
   <form [formGroup]="registrationForm">
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
@@ -11,7 +10,7 @@
           <label for="name" class="form-label">First Name </label>
           <input
             type="text"
-            id="text"
+            id="firstname"
             class="form-control"
             formControlName="firstName"
             placeholder="Enter Your First Name"
@@ -37,7 +36,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-6">
         <div class="form_group">
-          <label for="name" class="form-label">Last Name </label>
+          <label for="firstname" class="form-label">Last Name </label>
           <input
             type="text"
             id="text"
@@ -259,10 +258,12 @@
 
       <div class="col-12 col-md-6 col-lg-6">
         <div class="form_group position-relative">
-          <label for="password" class="form-label">Confirm Password</label>
+          <label for="confirmPassword" class="form-label"
+            >Confirm Password</label
+          >
           <input
             [type]="showConfirmPassword ? 'text' : 'password'"
-            id="password"
+            id="confirmPassword"
             class="form-control"
             placeholder="Create a secure password"
             formControlName="confirmPassword"

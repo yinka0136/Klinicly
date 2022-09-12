@@ -93,8 +93,7 @@ export class RegisterComponent implements OnInit {
         (res: ResponseModel<string>) => {
           console.log(res);
           this.isLoading = false;
-          const redirectTo = 'login';
-          this.router.navigateByUrl(redirectTo);
+          this.router.navigate(['sent', this.registrationForm.value.email]);
         },
         (error) => {
           this.isLoading = false;

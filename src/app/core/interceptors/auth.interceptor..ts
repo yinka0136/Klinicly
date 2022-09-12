@@ -41,15 +41,11 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     if (request.url.includes('Account')) {
-      // const authRequest = request.clone({
-      //   setHeaders: headers,
-
-      // });
-      // return next.handle(authRequest);
       return this.continueWithoutAuth(request, next, headers);
     }
 
     const token = this._currentUser.getAuthToken();
+
     if (token) {
       headers['Authorization'] = `Bearer ${token}`;
     }
@@ -62,6 +58,7 @@ export class AuthInterceptor implements HttpInterceptor {
           (event: HttpEvent<any>) => {
             if (event instanceof HttpResponse) {
               if (newRequest.method != 'GET' && event['body']) {
+                this._base.openSnackBar(event['body'].message);
               }
             }
           },
@@ -112,15 +109,15 @@ export class AuthInterceptor implements HttpInterceptor {
     newRequest?: HttpRequest<any>,
     next?: HttpHandler
   ) {
-    if (
-      error.error
-      // instanceof ErrorEvent
-    ) {
-      this._base.openSnackBar(error.error?.Message);
+    if (error.error instanceof ErrorEvent || error.error.message) {
+      this._base.openSnackBar(error.error?.message);
     } else {
       this._base.openSnackBar(error.statusText);
+      if (error.status === 402) {
+        this.router.navigate(['pay']);
+      }
       if (error.status === 401) {
-        this.router.navigate(['authentication/login']);
+        this.router.navigate(['login']);
         // this.handleRefresh(newRequest!, next!);
       }
       console.error(

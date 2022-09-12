@@ -1,25 +1,13 @@
 <div class="wrapper">
-  <h3 class="wrapper-heading">Verification Code</h3>
-  <p class="wrapper-paragraph">
-    Enter the 6 digits Verification code sent to your email to continue.
-  </p>
-
-  <form>
-    <div class="form_group">
-      <input
-        type="text"
-        id="code"
-        class="form-control"
-        placeholder="Enter Verification Code"
-        (keyup)="checkForKeyEnter($event)"
-      />
-      <div class="invalid-feedback">Required</div>
-    </div>
-    <div class="form_group">
-      <button class="btn_text btn_md btn_full" disabled>Resend in 0:05</button>
-    </div>
-    <div class="form_group">
-      <button class="btn_primary btn_md btn_full">Continue</button>
-    </div>
-  </form>
+  <p class="text-danger" *ngIf="error_message"><em>{{error_message}}</em></p>
+  <div class="d-flex align-items-center" *ngIf="isLoading">
+    <h3 class="wrapper-heading">Verifying User</h3>
+    <span>
+      <app-global-loader [diameter]="20" [inline]="true"></app-global-loader>
+    </span>
+  </div>
+  <p class="wrapper-already" *ngIf="error_message">
+    Back to
+    <span [routerLink]="['/login']" routerLinkActive="active">Sign In</span>
+    </p>
 </div>

@@ -86,8 +86,8 @@ export class LoginComponent implements OnInit {
     this._base.addSubscription(
       this._auth.login(this.loginForm.value).subscribe(
         (res: ResponseModel<LoginResponseDTO>) => {
-          this.isLoading = false;
           if (res?.data?.jwToken) {
+            this.isLoading = false;
             this._current.storeUserDetails(res.data);
             const redirectTo = 'dashboard';
             this.router.navigateByUrl(redirectTo);

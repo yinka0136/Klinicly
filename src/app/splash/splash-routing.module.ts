@@ -1,3 +1,6 @@
+import { VerifyPaymentComponent } from './pages/verify-payment/verify-payment.component';
+import { PayComponent } from './pages/pay/pay.component';
+import { EmailSentComponent } from './pages/email-sent/email-sent.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -52,8 +55,24 @@ const routes: Routes = [
         component: ForgotPasswordComponent,
       },
       {
-        path: 'reset',
+        path: 'reset-password',
         component: ResetPasswordComponent,
+      },
+      {
+        path: 'sent/:email',
+        component: EmailSentComponent,
+      },
+      {
+        path: 'confirm-email',
+        component: VerifyComponent,
+      },
+      {
+        path: 'pay',
+        component: PayComponent,
+      },
+      {
+        path: 'verify-payment',
+        component: VerifyPaymentComponent,
       },
     ],
   },

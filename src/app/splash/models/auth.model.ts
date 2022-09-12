@@ -4,19 +4,33 @@ export interface LoginRequestDTO {
 }
 
 export interface LoginResponseDTO {
-  email: string
-  id:string
-  isVerified: true
-  jwToken: string
-  refreshToken: string
-  refreshTokenExpiration: string
-  roles: string[]
-  tokenExpires: string
-  userId: string
-  userName: string
+  email: string;
+  id: string;
+  isVerified: boolean;
+  jwToken: string;
+  refreshToken: string;
+  refreshTokenExpiration: string;
+  roles: string[];
+  tokenExpires: string;
+  userId: string;
+  userName: string;
 }
 
+export interface ForgotPassswordDTO {
+  email: string;
+}
 
+export interface ResetPasswordDTO {
+  email: string;
+  token: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export interface confirmEmailDTO {
+  userId: string;
+  code: string;
+}
 
 export interface UserDetailsResponseDTO {
   departmentName: string;
@@ -52,22 +66,6 @@ export interface RegisterRequestDTO {
   password: string;
 }
 
-export interface ForgotPassswordDTO {
-  email: string;
-  token: string;
-}
-
-export interface ResetPasswordDTO {
-  newPassword: string;
-  confirmNewPassword: string;
-  token: string;
-}
-
 export interface ResendLink {
   email: string;
-}
-
-export interface confirmEmail {
-  email: string;
-  token: string;
 }
