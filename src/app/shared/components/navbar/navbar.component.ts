@@ -84,7 +84,6 @@ export class NavbarComponent implements OnInit {
       this._setting.getGeneralSearch(this.searchQuery.search).subscribe(
         (res: ResponseModel<SearchCategory[]>) => {
           this.isLoading = false;
-          console.log(res);
           this.searchResults = res.data;
         },
         (error) => {

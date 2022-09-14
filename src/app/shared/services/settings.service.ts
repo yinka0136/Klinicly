@@ -1,12 +1,8 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginResponseDTO } from '@auth/models/auth.model';
 import { SearchCategory } from '@auth/models/search.model';
 import { ResponseModel } from '@core/models/response.model';
-import {
-  InitializePaymentDTO,
-  PlanRequestDTO,
-} from '@shared/models/shared.model';
+import { LandingCount } from '@shared/models/shared.model';
 import { Observable } from 'rxjs';
 import { HttpService } from './http.service';
 
@@ -21,7 +17,7 @@ export class SettingsService {
     return this.http.getRequest(endpoint);
   }
 
-  public getDashboardCount(): Observable<ResponseModel<LoginResponseDTO>> {
+  public getLandingCount(): Observable<ResponseModel<LandingCount>> {
     const endpoint = 'Settings/dashboard-count';
     return this.http.getRequest(endpoint);
   }
@@ -33,6 +29,4 @@ export class SettingsService {
     const endpoint = 'Settings/general-search';
     return this.http.getRequestWithParams(endpoint, params);
   }
-
- 
 }

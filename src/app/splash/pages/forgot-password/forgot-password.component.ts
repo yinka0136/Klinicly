@@ -73,7 +73,6 @@ export class ForgotPasswordComponent implements OnInit {
       this._auth.forgotPassword(this.forgotForm.value).subscribe(
         (res: ResponseModel<LoginResponseDTO>) => {
           this.isLoading = false;
-          console.log(res)
         },
         (error) => {
           this.isLoading = false;

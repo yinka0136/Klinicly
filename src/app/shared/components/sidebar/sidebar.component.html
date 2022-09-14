@@ -70,12 +70,12 @@
     </div>
     <div class="sidebar-wrapper">
       <ul class="top-list">
-        <li>
+        <li *rbacAllow="['User']">
           <a
             class="side-link"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: false }"
-            routerLink="/dashboard"
+            routerLink="/s"
             (click)="toggleSidebar()"
           >
             <span class="side-icon">

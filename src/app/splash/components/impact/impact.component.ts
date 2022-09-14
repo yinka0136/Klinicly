@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { InitialLandingCount, LandingCount } from './../../../shared/models/shared.model';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-impact',
@@ -7,6 +8,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImpactComponent implements OnInit {
+  @Input()landingCount: LandingCount = InitialLandingCount
 
   constructor() { }
 

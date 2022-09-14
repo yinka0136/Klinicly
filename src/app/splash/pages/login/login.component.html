@@ -107,6 +107,7 @@
         class="btn_primary btn_md btn_full"
         [title]="loginForm.invalid ? 'pls input correct email' : 'Sign In'"
         (click)="login()"
+        [disabled]="isLoading"
       >
         <span *ngIf="!isLoading"> Sign In </span>
         <span *ngIf="isLoading">

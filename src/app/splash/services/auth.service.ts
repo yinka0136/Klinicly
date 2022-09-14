@@ -2,7 +2,6 @@ import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ResponseModel } from '@core/models/response.model';
 import { HttpService } from '@shared/services/http.service';
-import { DasboardCount } from 'app/dashboard/models/dashboard.model';
 import { Observable } from 'rxjs';
 import {
   confirmEmailDTO,
@@ -86,7 +85,7 @@ export class AuthService {
     return this.http.getRequest(endpoint);
   }
 
-  public getDashboard(): Observable<ResponseModel<DasboardCount>> {
+  public getDashboard(): Observable<ResponseModel<any>> {
     const endpoint = 'Dashboard/api-call-summary';
     return this.http.getRequest(endpoint);
   }

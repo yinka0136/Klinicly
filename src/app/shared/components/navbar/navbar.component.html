@@ -47,7 +47,7 @@
       >
         Upgrade Plan
       </button>
-      <div class="dropdown_item" routerLink="profile">
+      <div class="dropdown_item" routerLink="account">
         <svg
           width="20"
           height="21"
@@ -89,7 +89,7 @@
   </div>
 </nav>
 <app-search-results
-  class="w-100"
+  class="search"
   [ngClass]="{
     close: !this.searchQuery.search || !searchMode
   }"

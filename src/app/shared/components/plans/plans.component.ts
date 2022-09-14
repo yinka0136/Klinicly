@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { currentPlan, ICurrentUser } from '@core/models/user.model';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { PaymentService } from '@core/services/payment.service';
@@ -14,17 +15,31 @@ import { PaymentDurationComponent } from '@shared/dialogs/payment-duration/payme
   styleUrls: ['./plans.component.scss'],
 })
 export class PlansComponent implements OnInit {
+  @Input() isFromLanding: boolean = false;
   public isLoading: boolean = false;
   public isIntializingPayment: boolean = false;
   @Input() selected: string = PlanType.MONTHLY;
   public planType = PlanType;
   public plans: any[] = [];
-  public currentPlan!: currentPlan | undefined;
+  public currentPlan: currentPlan = new currentPlan(
+    '',
+    0,
+    0,
+    0,
+    '',
+    false,
+    0,
+    '',
+    '',
+    '',
+    ''
+  );
   constructor(
     private _base: Base,
     private _payment: PaymentService,
     private _localStorageAs: LocalStorageService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) {
     _localStorageAs.watch('klinicly_user').subscribe((res: ICurrentUser) => {
       if (res) {
@@ -47,6 +62,9 @@ export class PlansComponent implements OnInit {
         (res: ResponseModel<PlanRequestDTO[]>) => {
           this.isLoading = false;
           this.plans = res.data;
+          this.plans = this.plans.sort(
+            (a, b) => a.amountPerMonth - b.amountPerMonth
+          );
         },
         (error) => {
           this.isLoading = false;
@@ -64,7 +82,6 @@ export class PlansComponent implements OnInit {
         })
         .subscribe(
           (res: ResponseModel<string>) => {
-            console.log(res);
             this.isIntializingPayment = false;
             if (res.data.includes('http')) {
               window.open(res.data, '_self');
@@ -81,6 +98,10 @@ export class PlansComponent implements OnInit {
   }
 
   public openMonthsModal(planId: string): void {
+    if (this.isFromLanding) {
+      this.router.navigate(['register'], { queryParams: { planId: planId } });
+      return;
+    }
     this.currentPlan!.planId = planId;
     if (
       this.currentPlan?.planId === null ||

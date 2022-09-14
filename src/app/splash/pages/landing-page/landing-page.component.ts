@@ -1,3 +1,8 @@
+import {
+  InitialLandingCount,
+  LandingCount,
+} from './../../../shared/models/shared.model';
+import { SettingsService } from './../../../shared/services/settings.service';
 import { CurrentUserService } from '@core/services/current-user.service';
 import {
   AfterViewInit,
@@ -16,6 +21,7 @@ import { Base } from '@core/base/base-component';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { ResponseModel } from '@core/models/response.model';
 
 @Component({
   selector: 'app-landing-page',
@@ -58,13 +64,17 @@ export class LandingPageComponent
   public guest!: boolean;
   public screen!: string;
   public loading = true;
+  public isGettingCount: boolean = false;
+  public landingCount: LandingCount = InitialLandingCount;
 
   constructor(
     private router: Router,
     public mediaObserver: MediaObserver,
     private _current: CurrentUserService,
     injector: Injector,
-    _clipboard: Clipboard
+    _clipboard: Clipboard,
+    private _setting: SettingsService,
+    private _base: Base
   ) {
     super(injector, _clipboard);
     gsap.registerPlugin(ScrollTrigger);
@@ -86,6 +96,7 @@ export class LandingPageComponent
   }
 
   ngOnInit(): void {
+    this.getLandingCount();
     // (window as any).Intercom('update');
     // (this.password.value);
   }
@@ -98,11 +109,26 @@ export class LandingPageComponent
     this.router.navigate(['/dashboard']);
   }
 
+  public getLandingCount(): void {
+    this.isGettingCount = true;
+    this._base.addSubscription(
+      this._setting.getLandingCount().subscribe({
+        next: (res: ResponseModel<LandingCount>) => {
+          this.isGettingCount = false;
+          this.landingCount = res?.data;
+        },
+        error: () => {
+          this.isGettingCount = false;
+        },
+      })
+    );
+  }
+
   public runAnimation(): void {
     this.loading = false;
-      // this.headerAnimation();
-      // this.animateDrugs();
-      // this.sectionAnimation();
+    this.headerAnimation();
+    this.animateDrugs();
+    this.sectionAnimation();
   }
 
   headerAnimation() {

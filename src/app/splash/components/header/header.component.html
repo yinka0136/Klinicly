@@ -64,7 +64,12 @@
         </li>
 
         <li class="nav__list-item">
-          <a [routerLink]="['/about']" routerLinkActive="active">About</a>
+          <a
+            [routerLink]="['/about']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >About</a
+          >
         </li>
 
         <li class="nav__list-item">
@@ -225,27 +230,29 @@
 
     <div class="nav__col non-mobile-header">
       <div class="nav__buttons">
-        <button
-          *ngIf="guest"
-          class="btn_primary btn_md"
-          [routerLink]="['/login']"
-          routerLinkActive="active"
-        >
-          Sign In
-        </button>
+        <ng-container *ngIf="guest">
+          <button
+            class="btn_primary btn_md"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+          >
+            Sign In
+          </button>
+          <button
+            class="btn_outlined btn_md"
+            [routerLink]="['/register']"
+            routerLinkActive="active"
+          >
+            Create Account
+          </button>
+        </ng-container>
+
         <button
           class="btn_primary btn_md"
           [routerLink]="['/dashboard']"
           *ngIf="!guest"
         >
           Dashboard
-        </button>
-        <button
-          class="btn_outlined btn_md"
-          [routerLink]="['/register']"
-          routerLinkActive="active"
-        >
-          Create Account
         </button>
       </div>
     </div>

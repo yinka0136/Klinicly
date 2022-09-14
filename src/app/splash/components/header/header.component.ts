@@ -173,7 +173,6 @@ export class HeaderComponent implements OnInit {
         .subscribe(
           (res: ResponseModel<SearchCategory[]>) => {
             this.isLoading = false;
-            console.log(res);
             this.searchResults = res.data;
           },
           (error) => {

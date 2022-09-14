@@ -40,7 +40,6 @@ export class VerifyComponent implements OnInit {
         .confirmEmail({ userId: this.userId, code: this.code })
         .subscribe(
           (res: ResponseModel<any>) => {
-            console.log(res);
             this.isLoading = false;
             this._base.openSnackBar(res?.message);
             this._current.storeUserDetails(res.data);

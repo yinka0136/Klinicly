@@ -142,3 +142,11 @@ nav {
     color: rgba($body, 0.7);
   }
 }
+
+.search {
+  width: 100%;
+  position: absolute;
+  left: 30%;
+  z-index: 100;
+  top: 8%;
+}

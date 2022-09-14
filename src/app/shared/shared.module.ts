@@ -19,6 +19,7 @@ import { PlansComponent } from './components/plans/plans.component';
 import { EmptySearchHistoryComponent } from './components/empty-search-history/empty-search-history.component';
 import { PaymentDurationComponent } from './dialogs/payment-duration/payment-duration.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { RbacDirective } from './directives/rbac.directive';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     EmptySearchViewComponent,
     PaymentDurationComponent,
     SearchResultsComponent,
+    RbacDirective,
   ],
   imports: [
     CommonModule,
@@ -59,6 +61,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     EmptySearchViewComponent,
     PaymentDurationComponent,
     SearchResultsComponent,
+    RbacDirective,
   ],
 })
 export class SharedModule {}

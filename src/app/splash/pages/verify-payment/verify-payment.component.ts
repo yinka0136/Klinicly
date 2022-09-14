@@ -1,3 +1,4 @@
+import { CurrentUserService } from '@core/services/current-user.service';
 import { PaymentService } from '@core/services/payment.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +20,8 @@ export class VerifyPaymentComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private _base: Base,
-    private _pay: PaymentService
+    private _pay: PaymentService,
+    private _current: CurrentUserService
   ) {
     this.route.queryParams.subscribe((res: any) => {
       if (res) {
@@ -36,9 +38,9 @@ export class VerifyPaymentComponent implements OnInit {
     this._base.addSubscription(
       this._pay.verify(this.paymentResponse.trxref).subscribe(
         (res: ResponseModel<any>) => {
-          console.log(res);
           this.isLoading = false;
           this._base.openSnackBar(res?.message);
+          this._current.updatePlanObject(res.data);
           const redirectTo = 'dashboard';
           this.router.navigateByUrl(redirectTo);
         },

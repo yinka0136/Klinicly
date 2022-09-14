@@ -21,7 +21,11 @@
   <div class="container mt-5">
     <div class="row" #section1>
       <div class="col-12 col-md-4 col-lg-4 mb-2" *ngFor="let plan of plans">
-        <button (click)="openMonthsModal(plan?.id!)" class="card btn_full">
+        <button
+          (click)="openMonthsModal(plan?.id!)"
+          class="card btn_full"
+          [disabled]="currentPlan.planId! == plan?.id"
+        >
           <div class="card-head">
             <h3 class="card-head__title">
               <span *ngIf="currentPlan?.planId! == plan?.id">Current :</span>

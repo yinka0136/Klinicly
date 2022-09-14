@@ -21,6 +21,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { EmailSentComponent } from './pages/email-sent/email-sent.component';
 import { PayComponent } from './pages/pay/pay.component';
 import { VerifyPaymentComponent } from './pages/verify-payment/verify-payment.component';
+import { CountComponent } from './components/count/count.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +42,16 @@ import { VerifyPaymentComponent } from './pages/verify-payment/verify-payment.co
     EmailSentComponent,
     PayComponent,
     VerifyPaymentComponent,
+    CountComponent,
   ],
   imports: [
     CommonModule,
     SplashRoutingModule,
     SharedModule,
     MatAutocompleteModule,
+  ],
+  exports: [
+    CountComponent
   ],
 })
 export class SplashModule {}

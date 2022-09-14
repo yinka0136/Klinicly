@@ -1,3 +1,5 @@
+import { RoleEnum } from './../../../shared/models/role.model';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -50,21 +52,21 @@ export class LoginComponent implements OnInit {
         '',
         [
           Validators.required,
-          // CustomValidator.patternValidator(/\d/, {
-          //   hasNumber: true,
-          // }),
-          // CustomValidator.patternValidator(/[A-Z]/, {
-          //   hasCapitalCase: true,
-          // }),
+          CustomValidator.patternValidator(/\d/, {
+            hasNumber: true,
+          }),
+          CustomValidator.patternValidator(/[A-Z]/, {
+            hasCapitalCase: true,
+          }),
           CustomValidator.patternValidator(/[a-z]/, {
             hasSmallCase: true,
           }),
-          // CustomValidator.patternValidator(
-          //   /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
-          //   {
-          //     hasSpecialCharacters: true,
-          //   }
-          // ),
+          CustomValidator.patternValidator(
+            /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
+            {
+              hasSpecialCharacters: true,
+            }
+          ),
           Validators.minLength(8),
         ],
       ],
@@ -89,13 +91,19 @@ export class LoginComponent implements OnInit {
           if (res?.data?.jwToken) {
             this.isLoading = false;
             this._current.storeUserDetails(res.data);
-            const redirectTo = 'dashboard';
+            const redirectTo = res.data.roles.includes(RoleEnum.User)
+              ? 's'
+              : 'c';
             this.router.navigateByUrl(redirectTo);
           } else {
             this.router.navigateByUrl('verify');
           }
         },
-        (error) => {
+        (error: HttpErrorResponse) => {
+          if (error?.status == 406) {
+            this.isLoading = false;
+            this.router.navigate(['sent', this.loginForm.value.email]);
+          }
           this.isLoading = false;
         }
       )

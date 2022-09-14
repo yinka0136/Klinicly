@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ICurrentUser } from '@core/models/user.model';
+import { currentPlan, ICurrentUser } from '@core/models/user.model';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -26,11 +26,7 @@ export class CurrentUserService {
       localStorage.getItem('klinicly_user') || 'null'
     );
 
-    if (
-      klinicly_user !== null &&
-      klinicly_user !== undefined 
-     
-    ) {
+    if (klinicly_user !== null && klinicly_user !== undefined) {
       return true;
     }
     return false;
@@ -65,6 +61,12 @@ export class CurrentUserService {
     const newUserDetails = { jwToken: token, ...user };
     this.storeUserDetails(newUserDetails);
   }
+
+  public updatePlanObject(planObj: currentPlan): void {
+    const { currentSubscription, ...user } = this.getCurrentUser();
+    const newUserDetails = { currentSubscription: planObj, ...user };
+    this.storeUserDetails(newUserDetails);
+  }
   public setUser() {
     this.currentUser.next(this.getUser());
   }
@@ -72,6 +74,11 @@ export class CurrentUserService {
   public getUser() {
     const { jwToken, ...user } = this.getCurrentUser();
     return user;
+  }
+
+
+  public getUserRole(): string[] {
+    return this.getCurrentUser()?.roles ?? null;
   }
 
   public getCurrentUser(): ICurrentUser {

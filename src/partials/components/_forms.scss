@@ -12,6 +12,21 @@
     color: $body;
   }
 
+  .input-group {
+    span {
+      display: flex;
+      background: #dee2f1;
+      border: none;
+      border-radius: 0 .8rem .8rem 0;
+      padding:1.2rem  1.4rem;
+      font-weight: 400;
+font-size: 1.2rem;
+line-height: 150%;
+color: $body;
+
+    }
+  }
+
   input,
   select,
   textarea {

@@ -9,7 +9,7 @@
         >
           <div class="plan_item" (click)="setSelected(plan.id!)">
             <div class="left">
-              <h4 *ngIf="currentPlan.planId! == plan?.id">Current :</h4>
+              <h4 *ngIf="currentPlan?.planId! == plan?.id">Current :</h4>
               <h4>{{ plan?.name }}</h4>
             </div>
             <div class="right">

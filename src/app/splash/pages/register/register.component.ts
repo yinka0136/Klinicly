@@ -1,5 +1,5 @@
 import { CurrentUserService } from '@core/services/current-user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginResponseDTO } from '@auth/models/auth.model';
@@ -19,17 +19,22 @@ export class RegisterComponent implements OnInit {
   public showPassword: boolean = false;
   public showConfirmPassword: boolean = false;
   public roles = Roles;
+  public planId!: string | undefined;
   constructor(
     private fb: FormBuilder,
     private _base: Base,
     private _auth: AuthService,
     private router: Router,
-    private _current: CurrentUserService
+    private _current: CurrentUserService,
+    private route: ActivatedRoute
   ) {
     this.initializeRegistrationForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.planId =
+      (this.route.snapshot.queryParamMap.get('planId') as string) || undefined;
+  }
 
   public initializeRegistrationForm(): void {
     this.registrationForm = this.fb.group(
@@ -91,7 +96,6 @@ export class RegisterComponent implements OnInit {
     this._base.addSubscription(
       this._auth.register(this.registrationForm.value).subscribe(
         (res: ResponseModel<string>) => {
-          console.log(res);
           this.isLoading = false;
           this.router.navigate(['sent', this.registrationForm.value.email]);
         },

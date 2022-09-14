@@ -77,7 +77,6 @@ export class ResetPasswordComponent implements OnInit {
     this._base.addSubscription(
       this._auth.resetPassword(this.resetForm.value).subscribe(
         (res: ResponseModel<any>) => {
-          console.log(res);
           this.isLoading = false;
           this.router.navigate(['authentication/login']);
         },

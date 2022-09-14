@@ -90,10 +90,9 @@ export class PayComponent implements OnInit {
         })
         .subscribe(
           (res: ResponseModel<string>) => {
-            console.log(res);
             this.isIntializingPayment = false;
             if (res.data.includes('http')) {
-              window.open(res.data, "_self");
+              window.open(res.data, '_self');
               return;
             }
             this._current.updateToken(res?.data);

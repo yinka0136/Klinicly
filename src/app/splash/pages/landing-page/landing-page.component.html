@@ -10,24 +10,27 @@
     <img src="assets/landing/svg/Pill4.svg" alt="pill" class="pill" />
     <div class="u-container">
       <div class="heading_counts d-none d-md-block" #counters>
-        <div class="heading_counts-count">
-          <div class="head">
-            <h4>250+</h4>
-            <p>Generics</p>
-          </div>
-        </div>
-        <div class="heading_counts-count">
-          <div class="head">
-            <h4>170+</h4>
-            <p>Brands</p>
-          </div>
-        </div>
-        <div class="heading_counts-count">
-          <div class="head">
-            <h4>58+</h4>
-            <p>Companies</p>
-          </div>
-        </div>
+        <app-count
+          [name]="'Generics'"
+          [count]="landingCount.genericCount"
+          [loading]="isGettingCount"
+        >
+        </app-count>
+        <app-count
+          [name]="'Brands'"
+          [count]="landingCount.brandCount"
+          [loading]="isGettingCount"
+        ></app-count>
+        <app-count
+          [name]="'Companies'"
+          [count]="landingCount.companyCount"
+          [loading]="isGettingCount"
+        ></app-count>
+        <app-count
+          [name]="'Drugs'"
+          [count]="landingCount.drugCount"
+          [loading]="isGettingCount"
+        ></app-count>
       </div>
 
       <div class="heading_hero">
@@ -43,21 +46,22 @@
           </p>
         </div>
         <div class="heading__buttons">
-          <button
-            class="btn_outlined btn_md"
-            [routerLink]="['/register']"
-            routerLinkActive="active"
-          >
-            Create Account
-          </button>
-          <button
-            *ngIf="guest"
-            class="btn_primary btn_md"
-            [routerLink]="['/login']"
-            routerLinkActive="active"
-          >
-            Sign In
-          </button>
+          <ng-container *ngIf="guest">
+            <button
+              class="btn_outlined btn_md"
+              [routerLink]="['/register']"
+              routerLinkActive="active"
+            >
+              Create Account
+            </button>
+            <button
+              class="btn_primary btn_md"
+              [routerLink]="['/login']"
+              routerLinkActive="active"
+            >
+              Sign In
+            </button>
+          </ng-container>
           <button
             class="btn_primary btn_md"
             [routerLink]="['/dashboard']"
@@ -145,13 +149,19 @@
               within the products includes (Health-tech companies, HMOs,
               Hospitals, Manufacturers)
             </p>
-            <button class="btn_outlined btn_white btn_md">More About Us</button>
+            <button
+              class="btn_outlined btn_white btn_md"
+              [routerLink]="['/about']"
+              routerLinkActive="active"
+            >
+              More About Us
+            </button>
           </div>
         </div>
       </div>
     </div>
     <div class="u-container">
-      <app-impact></app-impact>
+      <app-impact [landingCount]="landingCount"></app-impact>
     </div>
   </section>
 
@@ -252,11 +262,11 @@
   </section>
 
   <section class="section documentation" #section4>
-    <img
-      src="assets/landing/img/documentation.svg"
-      alt="documentation"
-      class="documentation__img"
-    />
+    <!-- <img src="assets/landing/img/documentation.svg" alt="documentation" class="documentation__img"/> -->
+    <video  autoplay muted    class="documentation__img" src="assets/videos/consume.mov" width="671" height="510">
+    Your browser does not support the video tag.
+    </video>
+
     <div class="u-container">
       <div class="flex-container">
         <div class="col-12 col-md-7 col-lg-8">
@@ -315,7 +325,7 @@
       <h2 class="plans__heading">
         We’ve got the right <span>plan</span> for you
       </h2>
-      <app-plans></app-plans>
+      <app-plans [isFromLanding]="true"></app-plans>
     </div>
   </section>
 

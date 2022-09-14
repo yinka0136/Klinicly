@@ -122,7 +122,6 @@ section {
   @include respond(phone) {
     padding: 0;
     height: auto;
-
     & .img-container {
       overflow-x: hidden;
     }
@@ -136,12 +135,18 @@ section {
     // position: absolute;
     // bottom: -66px;
     // left:18%
+    margin-bottom: -5%;
   }
   .connect {
     position: absolute;
     right: 31%;
     top: 53%;
     z-index: 1;
+    @include respond(phone) {
+      right: 30%;
+      top: 61%;
+      width: 50%;
+    }
   }
   .standing {
     width: 100%;
@@ -169,6 +174,9 @@ section {
   &_mission {
     padding: 2.8rem;
     margin-bottom: 3.6rem;
+    @include respond(phone) {
+      margin-bottom: 0rem;
+    }
   }
   &__seperator {
     border: 0.1rem solid rgba($dark, 0.1);
@@ -176,6 +184,10 @@ section {
     margin-bottom: 20rem;
     // text-align: center;
     //     max-width: 93.6rem;
+
+    @include respond(phone) {
+      margin-bottom: 2rem;
+    }
   }
 
   &_circles {

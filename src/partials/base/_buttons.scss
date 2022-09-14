@@ -17,6 +17,7 @@
   }
   &:disabled {
     background: rgba($header, 0.15);
+    cursor: not-allowed;
   }
   @include respond(phone) {
     padding: 1.2rem !important;
@@ -45,6 +46,7 @@
   }
   &:disabled {
     border: 0.1rem solid #bababd;
+    cursor: not-allowed;
   }
   @include respond(phone) {
     padding: 1.2rem !important;
@@ -71,6 +73,7 @@
   &:disabled {
     border: 0.1rem solid #bababd;
     color: #bababd;
+    cursor: not-allowed;
   }
   @include respond(phone) {
     padding: 1.2rem !important;
@@ -100,6 +103,7 @@
     border: none;
     // border: 0.1rem solid #bababd;
     color: #bababd;
+    cursor: not-allowed;
   }
   @include respond(phone) {
     padding: 1.2rem !important;

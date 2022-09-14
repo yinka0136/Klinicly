@@ -12,10 +12,11 @@ export class UtilityService {
     return new Date(date);
   }
 
-  public getInitial(user: any) {
-    if (user) {
-      let firstName = user.split(' ')[0];
-      let lastName = user.split(' ')[1];
+  public getInitial(username: any) {
+    
+    if (username) {
+      let firstName = username.split(' ')[0];
+      let lastName = username.split(' ')[2];
       return (
         firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase()
       );
