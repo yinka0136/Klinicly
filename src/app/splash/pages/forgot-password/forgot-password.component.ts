@@ -1,3 +1,4 @@
+import { ResponseDialogComponent } from './../../../shared/dialogs/response-dialog/response-dialog.component';
 import { Base } from '@core/base/base-component';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -7,6 +8,7 @@ import { ResponseModel } from '@core/models/response.model';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/services/auth.service';
 import { CurrentUserService } from '@core/services/current-user.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   templateUrl: './forgot-password.component.html',
@@ -24,7 +26,8 @@ export class ForgotPasswordComponent implements OnInit {
     private _base: Base,
     private _auth: AuthService,
     private _current: CurrentUserService,
-    private router: Router
+    private router: Router,
+    private _dialog: MatDialog
   ) {
     this.initializeForgotForm();
   }
@@ -62,6 +65,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   public forgot(): void {
+    this.openSuccesssModal('Successful', 'success');
     if (this.forgotForm.invalid) {
       this.forgotForm.markAllAsTouched();
       return;
@@ -81,6 +85,12 @@ export class ForgotPasswordComponent implements OnInit {
     );
   }
 
+  public openSuccesssModal(message: string, type: string): void {
+    this._dialog.open(ResponseDialogComponent, {
+      panelClass: 'modal-width',
+      data: { message, type },
+    });
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

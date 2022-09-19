@@ -95,7 +95,6 @@ aside {
 
 .mobile-header {
   display: none;
-
   @include respond(tab-sm) {
     display: block;
     & .hamburger {
@@ -112,12 +111,12 @@ aside {
   }
 }
 
-.mobile {
-  display: none;
-  @include respond(tab-sm) {
-    display: block;
-  }
-}
+// .mobile {
+//   display: none;
+//   @include respond(tab-sm) {
+//     display: block;
+//   }
+// }
 
 .nav {
   position: relative;
@@ -300,6 +299,12 @@ aside {
   .nav__list-item {
     // height: 100%;
     display: block;
+    &.active {
+      a {
+        color: $dark;
+        border-color: $accent;
+      }
+    }
 
     & a {
       font-family: $nunito_font_bold;

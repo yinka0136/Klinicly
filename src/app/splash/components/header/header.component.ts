@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { SettingsService } from './../../../shared/services/settings.service';
 import { Base } from '@core/base/base-component';
 import { CurrentUserService } from '@core/services/current-user.service';
@@ -25,6 +26,7 @@ import { FormControl } from '@angular/forms';
 import { BehaviorSubject, of } from 'rxjs';
 import { ResponseModel } from '@core/models/response.model';
 import { SearchCategory } from '@auth/models/search.model';
+import { Fragments } from '@auth/models/fragment.model';
 // import { environment } from "@env/environment";
 // import { CurrentUserService } from "@services/current-user/current-user.service";
 
@@ -51,14 +53,15 @@ export class HeaderComponent implements OnInit {
   @ViewChild('header') header!: ElementRef<HTMLDivElement>;
   public guest!: boolean;
   public showSideNav = false;
-  lpStoreUrl = 'register';
-
+  public fragments = Fragments;
+  public activeFragment: string = 'Home';
   constructor(
     private _search: SearchHistoryServiceService,
     private _current: CurrentUserService,
     private _base: Base,
     public mediaObserver: MediaObserver,
-    private _setting: SettingsService
+    private _setting: SettingsService,
+    private route: ActivatedRoute
   ) {
     this._base.addSubscription(
       this.mediaObserver
@@ -74,7 +77,13 @@ export class HeaderComponent implements OnInit {
     this.guest = !_current.getCurrentUser();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.fragment.subscribe((fragment: any) => {
+      if (fragment) {
+        this.activeFragment = fragment;
+      }
+    });
+  }
 
   /**
    * Toggle the visibility of the side-nav.

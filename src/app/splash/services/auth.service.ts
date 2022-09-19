@@ -4,6 +4,7 @@ import { ResponseModel } from '@core/models/response.model';
 import { HttpService } from '@shared/services/http.service';
 import { Observable } from 'rxjs';
 import {
+  ChangePasswordDTO,
   confirmEmailDTO,
   ForgotPassswordDTO,
   LoginRequestDTO,
@@ -53,6 +54,13 @@ export class AuthService {
   ): Observable<ResponseModel<LoginResponseDTO>> {
     const endpoint = 'Account/reset-password';
     return this.http.makeRequestWithData('post', endpoint, {}, resetRequestDTO);
+  }
+
+  public changePassword(
+    changeRequestDTO: ChangePasswordDTO
+  ): Observable<ResponseModel<any>> {
+    const endpoint = 'Account/change-password';
+    return this.http.makeRequestWithData('post', endpoint, {}, changeRequestDTO);
   }
 
   public confirmEmail(

@@ -75,7 +75,6 @@ export class GraphComponent implements OnInit {
       ],
     },
   ];
-  public view: any = [700, 400];
   public showXAxis = true;
   public showYAxis = true;
   public gradient = false;

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SettingsService } from './../../services/settings.service';
 import { LoginResponseDTO } from '@auth/models/auth.model';
 import { Component, OnInit } from '@angular/core';
@@ -37,7 +38,8 @@ export class NavbarComponent implements OnInit {
     public _utils: UtilityService,
     private _currentUser: CurrentUserService,
     private _setting: SettingsService,
-    private _base: Base
+    private _base: Base,
+    private router: Router
   ) {
     this._loacalStorageAS.watch('klinicly_user').subscribe((_res: any) => {
       if (_res) {
@@ -49,6 +51,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getNotifications();
+  }
+
+  public goToLanding(): void {
+    this.router.navigate(['']);
   }
 
   // public getNotifications(): void {

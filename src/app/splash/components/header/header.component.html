@@ -54,39 +54,51 @@
         </svg>
       </div>
       <ul class="nav__list non-mobile-header" *ngIf="!searchMode">
-        <li class="nav__list-item">
-          <a
-            [routerLink]="['/']"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Home</a
-          >
+        <li
+          class="nav__list-item"
+          [class.active]="activeFragment == fragments.HOME"
+        >
+          <a [routerLink]="'.'" [fragment]="fragments.HOME">{{
+            fragments.HOME
+          }}</a>
         </li>
 
-        <li class="nav__list-item">
-          <a
-            [routerLink]="['/about']"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >About</a
-          >
+        <li
+          class="nav__list-item"
+          [class.active]="activeFragment == fragments.ABOUT"
+        >
+          <a [routerLink]="'.'" [fragment]="fragments.ABOUT">{{
+            fragments.ABOUT
+          }}</a>
         </li>
 
-        <li class="nav__list-item">
-          <a [routerLink]="['/whats-new']" routerLinkActive="active"
-            >Documentation</a
-          >
+        <li
+          class="nav__list-item"
+          [class.active]="activeFragment == fragments.DOCUMENTATION"
+        >
+          <a [routerLink]="'.'" [fragment]="fragments.DOCUMENTATION"
+            >{{ fragments.DOCUMENTATION }}
+          </a>
         </li>
 
-        <li class="nav__list-item">
-          <a [routerLink]="['/compare']" routerLinkActive="active">Pricing</a>
+        <li
+          class="nav__list-item"
+          [class.active]="activeFragment == fragments.PRICING"
+        >
+          <a [routerLink]="'.'" [fragment]="fragments.PRICING">{{
+            fragments.PRICING
+          }}</a>
         </li>
 
-        <li class="nav__list-item">
-          <a [routerLink]="['/whats-new']" routerLinkActive="active"
-            >Contact Us</a
-          >
+        <li
+          class="nav__list-item"
+          [class.active]="activeFragment == fragments.CONTACT_US"
+        >
+          <a [routerLink]="'.'" [fragment]="fragments.CONTACT_US">{{
+            fragments.CONTACT_US
+          }}</a>
         </li>
+
         <li class="nav__list-item">
           <a>
             <div class="pointer" (click)="setSearchMode()">
@@ -246,14 +258,24 @@
             Create Account
           </button>
         </ng-container>
-
-        <button
-          class="btn_primary btn_md"
-          [routerLink]="['/dashboard']"
-          *ngIf="!guest"
-        >
-          Dashboard
-        </button>
+        <ng-container *rbacAllow="['User']">
+          <button
+            class="btn_primary btn_md"
+            [routerLink]="['/s/dashboard']"
+            *ngIf="!guest"
+          >
+            Dashboard
+          </button>
+        </ng-container>
+        <ng-container *rbacAllow="['Company']">
+          <button
+            class="btn_primary btn_md"
+            [routerLink]="['/c/dashboard']"
+            *ngIf="!guest"
+          >
+            Dashboard
+          </button>
+        </ng-container>
       </div>
     </div>
     <app-search-results

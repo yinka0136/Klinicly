@@ -283,21 +283,23 @@
             alt="eye close icon"
             class="svg_eye"
           />
-        </div>
-        <small class="invalid-feedback mt-2">
-          <span
-            *ngIf="
-              (registrationForm.get('confirmPassword')!.hasError('required') ||
-                registrationForm
+          <small class="invalid-feedback mt-2">
+            <span
+              *ngIf="
+                (registrationForm
                   .get('confirmPassword')!
-                  .hasError('NoPasswordMatch')) &&
-              (registrationForm.get('confirmPassword')!.dirty ||
-                registrationForm.get('confirmPassword')!.touched)
-            "
-          >
-            Password Doesn't match
-          </span>
-        </small>
+                  .hasError('required') ||
+                  registrationForm
+                    .get('confirmPassword')!
+                    .hasError('NoPasswordMatch')) &&
+                (registrationForm.get('confirmPassword')!.dirty ||
+                  registrationForm.get('confirmPassword')!.touched)
+              "
+            >
+              Password Doesn't match
+            </span>
+          </small>
+        </div>
       </div>
     </div>
 
@@ -320,7 +322,7 @@
         </span>
       </button>
     </div>
-    <app-socials></app-socials>
+    <!-- <app-socials></app-socials> -->
     <p
       class="wrapper-already"
       [routerLink]="['/login']"

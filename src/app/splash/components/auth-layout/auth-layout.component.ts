@@ -15,9 +15,9 @@ export class AuthLayoutComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.shuffleImages();
-    }, 4000);
+    // setInterval(() => {
+    //   this.shuffleImages();
+    // }, 4000);
   }
 
   public shuffleImages() {

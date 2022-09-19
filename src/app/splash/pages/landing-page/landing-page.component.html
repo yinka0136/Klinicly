@@ -1,5 +1,5 @@
 <main class="main">
-  <section class="section heading">
+  <section class="section heading" id="Home">
     <img src="assets/landing/svg/Pill1.svg" alt="pill" class="pill" />
     <img src="assets/landing/svg/Pill2.svg" alt="pill" class="pill" />
     <img src="assets/landing/svg/Pill3.svg" alt="pill" class="pill" />
@@ -62,13 +62,24 @@
               Sign In
             </button>
           </ng-container>
-          <button
-            class="btn_primary btn_md"
-            [routerLink]="['/dashboard']"
-            *ngIf="!guest"
-          >
-            Dashboard
-          </button>
+          <ng-container *rbacAllow="['User']">
+            <button
+              class="btn_primary btn_md"
+              [routerLink]="['/s/dashboard']"
+              *ngIf="!guest"
+            >
+              Dashboard
+            </button>
+          </ng-container>
+          <ng-container *rbacAllow="['Company']">
+            <button
+              class="btn_primary btn_md"
+              [routerLink]="['/c/dashboard']"
+              *ngIf="!guest"
+            >
+              Dashboard
+            </button>
+          </ng-container>
         </div>
         <img
           src="assets/landing/img/mac.svg"
@@ -126,7 +137,7 @@
     </div>
   </section>
 
-  <section class="section about">
+  <section class="section about" id="About">
     <div class="u-container">
       <div class="flex-container" #section2>
         <div class="col-12 col-md-5 col-lg-5">
@@ -261,10 +272,19 @@
     </div>
   </section>
 
-  <section class="section documentation" #section4>
+  <section class="section documentation" #section4 id="Documentation">
     <!-- <img src="assets/landing/img/documentation.svg" alt="documentation" class="documentation__img"/> -->
-    <video  autoplay muted    class="documentation__img" src="assets/videos/consume.mov" width="671" height="510">
-    Your browser does not support the video tag.
+    <video
+      controls
+      muted
+      autoplay
+      width="671"
+      height="510"
+      class="documentation__img"
+    >
+      <source src="assets/videos/doc.mov" />
+      <source src="movie.ogg" type="video/ogg" />
+      Your browser does not support the video tag.
     </video>
 
     <div class="u-container">
@@ -320,7 +340,7 @@
     </div>
   </section>
 
-  <section class="section plans">
+  <section class="section plans" id="Pricing">
     <div class="u-container">
       <h2 class="plans__heading">
         We’ve got the right <span>plan</span> for you
@@ -432,7 +452,7 @@
     </div>
   </section>
 
-  <section class="section questions">
+  <section class="section questions" id="Contact Us">
     <div class="u-container">
       <div class="flex-container" #section3>
         <div class="flex-container__full-row">

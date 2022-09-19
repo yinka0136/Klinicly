@@ -1,7 +1,7 @@
 <nav class="">
-  <span routerLink="" class="pointer">
-    <embed src="assets/icons/logo.svg" alt="logo" />
-  </span>
+  <div (click)="goToLanding()" class="pointer">
+    <img src="assets/icons/logo.svg" alt="logo" />
+  </div>
 
   <div class="right">
     <app-searchbar
@@ -42,8 +42,16 @@
 
     <mat-menu #menu="matMenu">
       <button
+        *rbacAllow="['User']"
         class="btn_primary btn_md btn_full mb-2"
-        routerLink="dashboard/upgrade"
+        routerLink="s/dashboard/upgrade"
+      >
+        Upgrade Plan
+      </button>
+      <button
+        *rbacAllow="['Company']"
+        class="btn_primary btn_md btn_full mb-2"
+        routerLink="c/dashboard/upgrade"
       >
         Upgrade Plan
       </button>
