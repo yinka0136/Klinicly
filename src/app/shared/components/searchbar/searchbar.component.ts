@@ -9,7 +9,17 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { SearchCategory } from '@auth/models/search.model';
+import {
+  filter,
+  map,
+  tap,
+  debounceTime,
+  distinctUntilChanged,
+} from 'rxjs/operators';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { fromEvent } from 'rxjs';
 
+@UntilDestroy()
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
@@ -32,6 +42,20 @@ export class SearchbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  ngAfterViewInit() {
+    fromEvent(this.searchQueryElement.nativeElement, 'keyup')
+      .pipe(
+        untilDestroyed(this),
+        filter(Boolean),
+        debounceTime(1000),
+        distinctUntilChanged(),
+        tap(async (event: any) => {
+          this.searchAction.emit(true);
+
+        })
+      )
+      .subscribe();
+  }
   public btnPressed(): void {
     this.btnAction.emit();
   }
@@ -52,9 +76,8 @@ export class SearchbarComponent implements OnInit {
         this.searchModeEvent.emit(false))
       : null;
     this.searchQuery.emit(searchQuery);
-    var key = event.key || event.keyCode;
-    if (key == 'Enter' || key == 8 || searchQuery == '') {
-      this.searchAction.emit(true);
-    }
+    // var key = event.key || event.keyCode;
+    // if (key == 'Enter' || key == 8 || searchQuery == '') {
+    // }
   }
 }

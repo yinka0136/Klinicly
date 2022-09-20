@@ -1,43 +1,45 @@
 import { ActivatedRoute } from '@angular/router';
-import { SettingsService } from './../../../shared/services/settings.service';
+import { SettingsService } from '@shared/services/settings.service';
 import { Base } from '@core/base/base-component';
 import { CurrentUserService } from '@core/services/current-user.service';
 import { SearchHistoryServiceService } from './../../services/search-history-service.service';
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
   Input,
+  OnDestroy,
   OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import {
-  catchError,
   filter,
   map,
   tap,
   debounceTime,
   distinctUntilChanged,
-  switchMap,
 } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, fromEvent, of } from 'rxjs';
 import { ResponseModel } from '@core/models/response.model';
 import { SearchCategory } from '@auth/models/search.model';
 import { Fragments } from '@auth/models/fragment.model';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 // import { environment } from "@env/environment";
 // import { CurrentUserService } from "@services/current-user/current-user.service";
 
+@UntilDestroy()
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   public screen!: string;
-  @ViewChild('searchQuery') searchQueryElement!: ElementRef;
+  @ViewChild('searchQuery', { static: false }) searchQueryElement!: ElementRef;
   @Output() searchQuery: EventEmitter<string> = new EventEmitter<string>();
   public searchForm = new FormControl('');
   public searchTerms: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(
@@ -76,7 +78,19 @@ export class HeaderComponent implements OnInit {
     );
     this.guest = !_current.getCurrentUser();
   }
-
+  ngAfterViewInit() {
+    fromEvent(this.searchQueryElement.nativeElement, 'keyup')
+      .pipe(
+        untilDestroyed(this),
+        filter(Boolean),
+        debounceTime(1000),
+        distinctUntilChanged(),
+        tap(async (event: any) => {
+          this.handleSubmit();
+        })
+      )
+      .subscribe();
+  }
   ngOnInit(): void {
     this.route.fragment.subscribe((fragment: any) => {
       if (fragment) {
@@ -121,9 +135,9 @@ export class HeaderComponent implements OnInit {
       : null;
     this.searchQuery.emit(searchQuery);
     var key = event.key || event.keyCode;
-    if (key == 'Enter' || key == 8 || searchQuery == '') {
-      this.handleSubmit();
-    }
+    // if (key == 'Enter' || key == 8 || searchQuery == '') {
+    //   this.handleSubmit();
+    // }
   }
 
   public stopBubbling(event: any): void {
@@ -189,5 +203,8 @@ export class HeaderComponent implements OnInit {
           }
         )
     );
+  }
+  ngOnDestroy() {
+    // To protect you, we'll throw an error if it doesn't exist.
   }
 }

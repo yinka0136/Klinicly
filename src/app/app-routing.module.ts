@@ -1,3 +1,4 @@
+import { PaymentGuard } from './core/guards/payment.guard';
 import { NgModule } from '@angular/core';
 import {
   ExtraOptions,
@@ -23,7 +24,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [RouteGuard],
+    canActivate: [RouteGuard, PaymentGuard],
     children: [
       {
         path: 'c',

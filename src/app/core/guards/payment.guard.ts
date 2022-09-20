@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -14,7 +15,8 @@ import { Observable } from 'rxjs';
 export class PaymentGuard implements CanActivate {
   constructor(
     private _auth: AuthService,
-    private router: Router,private _current: CurrentUserService
+    private router: Router,
+    private _current: CurrentUserService
   ) {}
 
   canActivate(
@@ -25,31 +27,24 @@ export class PaymentGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    
-
     return this.confirmPayment();
   }
 
   public confirmPayment(): any {
     const isLoggedIn = this._current.isLoggedIn();
-      this._auth.getAccessKey().subscribe({
-        next: (res:any) => {
-           return true
-        },
-        error: (error:any) => {
-          if(isLoggedIn){
-            this.router.navigate(['pay']);
-          }
-          else{
-            this.router.navigate(['login']);
-          }
-         
-          return false;
-        },
-      });
+    this._auth.getAccessKey().subscribe({
+      next: (res: any) => {
+        return true;
+      },
+      error: (error: HttpErrorResponse) => {
+        if (isLoggedIn) {
+          this.router.navigate(['pay']);
+        } else {
+          this.router.navigate(['login']);
+        }
 
-    }
-  
-
-  
+        return false;
+      },
+    });
+  }
 }

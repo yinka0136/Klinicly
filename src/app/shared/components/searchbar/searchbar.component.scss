@@ -21,6 +21,7 @@
     ._search {
       cursor: pointer;
     }
+    
     ._clear {
       position: absolute;
       right: 0.5rem;
@@ -35,6 +36,9 @@
       padding: 1rem 1.6rem 1rem 3.2rem;
       max-height: 3.2rem !important;
       min-width: 32rem;
+      @include respond(phone) {
+        min-width: 100%;
+      }
       border-radius: 0.6rem;
       border: none;
     }

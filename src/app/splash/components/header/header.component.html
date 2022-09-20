@@ -127,7 +127,17 @@
           ></a>
         </li>
       </ul>
-      <ul class="nav__list" *ngIf="searchMode">
+      <!-- 
+      <input
+        type="text"
+        class="form-control"
+        #input
+        placeholder="Search brands, generics, drugs, companies"
+        (keyup)="getSearchQuery(input.value, $event)"
+        [formControl]="searchForm"
+      /> -->
+
+      <ul class="nav__list" [hidden]="!searchMode">
         <div class="search-wrapper-input">
           <div class="_icon">
             <span class="_search">
@@ -319,49 +329,61 @@
 
   <aside [class.show]="showSideNav">
     <ul class="nav__list">
-      <li class="nav__list-item">
+      <li
+        class="nav__list-item"
+        [class.active]="activeFragment == fragments.HOME"
+      >
         <a
-          [routerLink]="['/']"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="'.'"
+          [fragment]="fragments.HOME"
           (click)="toggleSideNav()"
-          >Home</a
+          >{{ fragments.HOME }}</a
         >
       </li>
 
-      <li class="nav__list-item">
+      <li
+        class="nav__list-item"
+        [class.active]="activeFragment == fragments.ABOUT"
+      >
         <a
-          [routerLink]="['/about']"
-          routerLinkActive="active"
+          [routerLink]="'.'"
+          [fragment]="fragments.ABOUT"
           (click)="toggleSideNav()"
-          >About</a
+          >{{ fragments.ABOUT }}</a
+        >
+      </li>
+      <li
+        class="nav__list-item"
+        [class.active]="activeFragment == fragments.DOCUMENTATION"
+      >
+        <a
+          [routerLink]="'.'"
+          [fragment]="fragments.DOCUMENTATION"
+          (click)="toggleSideNav()"
+          >{{ fragments.DOCUMENTATION }}</a
+        >
+      </li>
+      <li
+        class="nav__list-item"
+        [class.active]="activeFragment == fragments.PRICING"
+      >
+        <a
+          [routerLink]="'.'"
+          [fragment]="fragments.PRICING"
+          (click)="toggleSideNav()"
+          >{{ fragments.PRICING }}</a
         >
       </li>
 
-      <li class="nav__list-item">
+      <li
+        class="nav__list-item"
+        [class.active]="activeFragment == fragments.CONTACT_US"
+      >
         <a
-          [routerLink]="['/compare']"
-          routerLinkActive="active"
+          [routerLink]="'.'"
+          [fragment]="fragments.CONTACT_US"
           (click)="toggleSideNav()"
-          >Pricing</a
-        >
-      </li>
-
-      <li class="nav__list-item">
-        <a
-          [routerLink]="['/whats-new']"
-          routerLinkActive="active"
-          (click)="toggleSideNav()"
-          >What’s new?</a
-        >
-      </li>
-
-      <li class="nav__list-item">
-        <a
-          [routerLink]="['/contact-us']"
-          routerLinkActive="active"
-          (click)="toggleSideNav()"
-          >Contact us</a
+          >{{ fragments.CONTACT_US }}</a
         >
       </li>
     </ul>

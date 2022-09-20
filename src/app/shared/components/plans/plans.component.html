@@ -24,7 +24,7 @@
         <button
           (click)="openMonthsModal(plan?.id!)"
           class="card btn_full"
-          [disabled]="currentPlan.planId! == plan?.id"
+          [disabled]="currentPlan?.planId! == plan?.id"
         >
           <div class="card-head">
             <h3 class="card-head__title">

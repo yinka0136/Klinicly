@@ -1,3 +1,4 @@
+import { PreloaderComponent } from './components/preloader/preloader.component';
 import { EmptySearchViewComponent } from './components/empty-search-view/empty-search-view.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { MaterialModule } from './../material/material.module';
@@ -41,6 +42,7 @@ import { ResponseDialogComponent } from './dialogs/response-dialog/response-dial
     SearchResultsComponent,
     RbacDirective,
     ResponseDialogComponent,
+    PreloaderComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,7 @@ import { ResponseDialogComponent } from './dialogs/response-dialog/response-dial
     PaymentDurationComponent,
     SearchResultsComponent,
     RbacDirective,
-    ResponseDialogComponent,
+    ResponseDialogComponent,PreloaderComponent
   ],
 })
 export class SharedModule {}

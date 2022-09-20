@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://api.klinicly.com/api/v1/',
+  api_url: 'https://api.klinicly.com/api/v1/',
 };
 
 /*

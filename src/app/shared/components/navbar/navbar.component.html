@@ -1,5 +1,5 @@
 <nav class="">
-  <div (click)="goToLanding()" class="pointer">
+  <div (click)="goToLanding()" class="pointer me-2">
     <img src="assets/icons/logo.svg" alt="logo" />
   </div>
 
@@ -9,7 +9,7 @@
       (searchAction)="search()"
       (searchModeEvent)="getSearchMode($event)"
     ></app-searchbar>
-    <div class="right_notification">
+    <div class="right_notification d-none d-lg-block">
       <span class="dot"></span>
       <img
         custom-drawer-trigger="notifications"
@@ -17,9 +17,14 @@
         alt="Notifications"
       />
     </div>
-    <span class="line"></span>
-    <h4 routerLink="/user-profile">{{ user?.userName }}</h4>
-    <span [matMenuTriggerFor]="menu" class="d-flex align-items-center pointer">
+    <span class="line d-none d-lg-block"></span>
+    <h4 routerLink="/user-profile" class="d-none d-lg-block">
+      {{ user?.userName }}
+    </h4>
+    <span
+      [matMenuTriggerFor]="menu"
+      class="d-flex align-items-center pointer "
+    >
       <div class="right_avatar">
         <div class="right_avatar-inner">
           <p>{{ initial }}</p>
